@@ -1,0 +1,75 @@
+$gray-100: rgb(208, 217, 238) !default;
+$gray-600: rgb(121, 173, 167);
+$gray-900:rgb(46, 55, 61) !default;
+$white-80: rgba(255, 255, 255, .8);
+
+// $blue: rgb(17, 151, 158) !default;
+// $red: rgb(220, 53, 69) !default;
+// $green: rgb(0, 106, 110) !default;
+// $yellow: rgb(201, 150, 36) !default;
+// $cyan: $gray-600 !default;
+
+/** **/
+
+$gray-100: rgb(208, 217, 238) !default;
+$gray-600: rgb(121, 173, 167);
+$gray-900:rgb(46, 55, 61) !default;
+
+$blue: #F2AD1E !default;
+$red: #A26400 !default;
+$green: rgb(0, 106, 110) !default;
+$yellow: #4D6665 !default;
+$cyan: #D2912D !default;
+
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+
+$font-family-sans-serif: 'Montserrat',
+'Lato',
+sans-serif;
+$headings-font-family: 'Open Sans',
+'Cinzel',
+serif;
+
+$font-weight-light: 100 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 900 !default;
+
+$single-gutter: 15px !default;
+$double-gutter: $single-gutter * 2 !default;
+
+$spacing-bottom: 60px !default;
+$spacing-bottom-half: $spacing-bottom / 2 !default;
+
+// Grid breakpoints
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px);
+
+// Grid containers
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (sm: 540px,
+md: 720px,
+lg: 960px,
+xl: 1140px);
+
+$enable-caret: true !default;
+$enable-rounded: false !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: true !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+
+$border-width: 0px !default;
+
+$spacer: 1rem !default;
+
+// $fa-font-path: "../../../node_modules/@fortawesome/fontawesome-free/webfonts" !default;
+$btn-border-focus: $blue;

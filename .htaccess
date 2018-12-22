@@ -1,0 +1,31 @@
+<ifModule mod_headers.c>
+    Header set Access-Control-Allow-Origin: *
+</ifModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^ocodesign.es$ [NC,OR]
+    RewriteCond %{HTTP_HOST} ^www.ocodesign.es$
+  
+    # RewriteBase /
+
+    RewriteCond %{REQUEST_URI} !^/wordpress/
+    RewriteRule (.*) /wordpress/$1 [L]
+    
+    RewriteRule ^index\.php$ - [L]
+
+    # add a trailing slash to /wp-admin
+    RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
+    RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
+    RewriteRule . index.php [L]
+
+</IfModule>

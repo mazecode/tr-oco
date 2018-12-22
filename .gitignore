@@ -1,0 +1,4 @@
+/wordpress
+/vendor
+/node-modules
+composer.lock

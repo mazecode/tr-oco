@@ -1,0 +1,45 @@
+.tabs.wc-tabs {
+	@extend .nav-tabs,
+	.nav;
+	// margin-bottom: $single-gutter;
+
+	li {
+		@extend .nav-item;
+
+		&.active {
+			a {
+				@extend .active;
+			}
+		}
+
+		a {
+			@extend .nav-link;
+		}
+	}
+}
+
+.woocommerce-Tabs-panel.panel {
+	margin-bottom: ($spacer / 2);
+}
+
+.woocommerce-MyAccount-navigation {
+	ul {
+		@extend .nav-tabs,
+		.nav;
+		// margin-bottom: $single-gutter;
+
+		li {
+			@extend .nav-item;
+
+			&.is-active {
+				a {
+					@extend .active;
+				}
+			}
+
+			a {
+				@extend .nav-link;
+			}
+		}
+	}
+}
