@@ -23,14 +23,14 @@
 // mysql://root:symf0ny@mysql:3306/individual-vocabulary
 
 /** The name of the database for WordPress */
-define('DB_NAME', 'ocodesig_homestead');
+define('DB_NAME', 'homestead'); 
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'homestead');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'toor');
-
+define('DB_PASSWORD', 'secret'); 
+ 
 /** MySQL hostname */
 define('DB_HOST', 'mariadb');
 
@@ -81,8 +81,7 @@ $table_prefix  = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', true);
-
-
+define('WP_DEBUG_LOG', true);
 
 /* That's all, stop editing! Happy blogging. */
 

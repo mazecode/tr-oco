@@ -20,12 +20,11 @@ add_action('typerocket_loaded', function () {
     global $pagenow;
 
     if (tr_options_field('maintenance_mode')
-        && $pagenow !== 'wp-login.php'
+        && $pagenow != 'wp-login.php'
         && preg_match('(maintenance)', htmlspecialchars($_SERVER['REQUEST_URI'])) == 0
         && !current_user_can('manage_options')
         && !is_admin()
-        && !isset($_POST)
-    ) {
+        && !isset($_POST)) {
         return tr_redirect()->toURL(home_url('/maintenance'))->now();
     }
 });
@@ -34,14 +33,11 @@ add_filter('tr_rest_api_load', function ($load, $resource, $itemId) {
     return $load;
 }, 10, 3);
 
-
-
 function woocommerce_support()
 {
     add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'woocommerce_support');
-
 
 add_action('pre_get_posts', function ($loop) {
     if (is_admin() || !$loop->is_main_query()) {
@@ -58,11 +54,16 @@ add_action('pre_get_posts', function ($loop) {
     }
 
     if (is_post_type_archive('project')) {
-        // Show 20 posts for the custom post type 'team'
+        $loop->set('post_type', 'project');
         $loop->set('posts_per_page', 20);
         return;
     }
 
+    if (is_post_type_archive('product')) {
+        $loop->set('post_type', 'product');
+        $loop->set('posts_per_page', 20);
+        return;
+    }
 }, 1);
 
 add_filter('body_class', function ($classes) {
@@ -71,10 +72,6 @@ add_filter('body_class', function ($classes) {
 
     $classes[] = $slug;
     $classes[] = 'site-id-' . $id;
-
-    if (preg_match('(maintenance)', htmlspecialchars(trim($_SERVER["REQUEST_URI"], '/'))) == 1) {
-        $classes[] = 'maintenance-mode';
-    }
 
     if (preg_match('(maintenance)', htmlspecialchars(trim($_SERVER["REQUEST_URI"], '/'))) == 1) {
         $classes[] = 'maintenance-mode';
@@ -98,25 +95,10 @@ add_filter('body_class', function ($classes) {
 
 });
 
-
-// Admin Dashboard
-$dash = tr_meta_box('Maintenance')->addScreen('dashboard')
-    ->setCallback(function () {
-        $form = tr_form('option');
-        $form->useJson()->useAjax();
-        echo $form->open();
-        echo $form->radio('Maintenance mode')->setOptions(['ON' => '1', 'OFF' => '0'])->setSetting('default', '0');
-        echo $form->close('Save');
-    });
-
-// Projects
-require_once 'inc/_projects.php';
-
-// Products
-require_once 'inc/_products.php';
-
-// Assets Admin|Theme
-require_once 'inc/_assets.php';
+require_once 'inc/_admin.php'; // Admin Dashboard
+require_once 'inc/_projects.php'; // Projects
+require_once 'inc/_products.php'; // Products
+require_once 'inc/_assets.php';// Assets Admin|Theme
 
 require_once 'inc/settings/theme-options.php';
 require_once 'inc/settings/social.php';
@@ -132,16 +114,9 @@ if (class_exists('WooCommerce')) {
     require_once 'inc/woocommerce/woocommerce.php';
 }
 
-
-/** */
-
-add_filter('wp_mail_from', 'new_mail_from');
-add_filter('wp_mail_from_name', 'new_mail_from_name');
-function new_mail_from($mail)
-{
+add_filter('wp_mail_from', function ($mail) {
     return 'info@ocodesign.es';
-}
-function new_mail_from_name($mail)
-{
+});
+add_filter('wp_mail_from_name', function ($mail) {
     return 'OCO Design';
-}
+});

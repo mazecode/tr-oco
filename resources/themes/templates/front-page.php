@@ -24,7 +24,7 @@ body {
                 <div id="player0" class="video"></div>
             </div>
         </div>
-        <div id="products" class="col-md-6 d-flex p-0 tile" data-scale="1.1" redirect-to="#">
+        <div id="products" class="col-md-6 d-flex p-0 tile" data-scale="1.1" redirect-to="<?= get_permalink((function_exists('wc_get_page_id')) ? wc_get_page_id( 'shop' ) : get_option('page_for_posts')) ?>">
             <div class="d-flex my-auto mx-auto">
                 <h2 class="text-primary display-2 text-light">Productos</h2>
             </div>
@@ -33,6 +33,49 @@ body {
             </div>
         </div>
     </div>
+    <?php 
+    printf(
+        '<a href="%s">%s</a>',
+        get_permalink( get_option( 'wp_page_for_privacy_policy' ) ),
+        esc_html( __( 'Privacy Policy' ) )
+    );
+    ?>
 </div>
+
+<script>
+    (function () {
+        var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    })();
+</script>
 
 <?php wp_footer();

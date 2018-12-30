@@ -1,4 +1,16 @@
-<?php get_header(); ?>
+HOME
+
+<?php get_header(); 
+
+if ( is_front_page() ) :
+    get_header( 'home' );
+elseif ( is_page( 'About' ) ) :
+    get_header( 'about' );
+else:
+    get_header();
+endif;
+
+?>
 
 <section class="container">              
     <?php while (have_posts()) : the_post() ?>

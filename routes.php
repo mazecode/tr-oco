@@ -7,6 +7,7 @@
 | Manage your web routes here.
 |
 */
+
 if (!tr_options_field('maintenance_mode') && $_SERVER['SERVER_ADDR'] != '192.168.10.10') {
     tr_route()->get('/', function () {
         return tr_redirect()->toURL('/maintenance')->now();
@@ -14,10 +15,18 @@ if (!tr_options_field('maintenance_mode') && $_SERVER['SERVER_ADDR'] != '192.168
 }
 
 tr_route()->get('/maintenance', function () {
+    dd('here');
+    
     if (!tr_options_field('maintenance_mode')) {
         return tr_redirect()->toURL(home_url('/'))->now();
     }
     return tr_view('maintenance');
+});
+
+// tr_route()->get('/');
+
+tr_route()->get('/project', function() {
+    dd('hello world');
 });
 
 tr_route()->post('/contact/send', 'send@Contact');

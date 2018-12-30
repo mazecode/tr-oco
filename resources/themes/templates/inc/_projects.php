@@ -1,6 +1,5 @@
 <?php
 
-
 // Projects
 $projects = tr_post_type('Project', 'Projects')
     ->setIcon('folder')
@@ -12,7 +11,7 @@ $projects = tr_post_type('Project', 'Projects')
 
 $projects->addColumn('favourite_color', false, 'Color', function ($value) {
     echo $value;
-}, 'string')
+    }, 'string')
     ->addColumn('profile_picture', false, 'Profile Picture', function ($value) {
         echo wp_get_attachment_image($value, 'thumbnail');
     }, 'number');

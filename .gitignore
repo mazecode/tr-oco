@@ -1,4 +1,10 @@
-/wordpress
+.git
+/log
+/node_modules
 /vendor
-/node-modules
+/wordpress/*
+!/wordpress/assets
+
+package-lock.json
 composer.lock
+

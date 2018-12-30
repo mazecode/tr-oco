@@ -1,9 +1,4 @@
-<?php 
-
-echo "Fuck you off blody scum. Silent's key";
-exit;
-
-?>
+<?php echo "Fuck you off blody scum. Silent's key"; exit; ?>
 
 <div class="container" id="main">
 	<div class="row">

@@ -1,15 +1,3 @@
-<?php
-
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package brix_portfolio
- */
-?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
@@ -19,11 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="<?= bloginfo('description') ?>">
     <?= (tr_options_field('maintenance_mode')) ? '<meta name="robots" content="noindex, nofollow">' : '' ?>
-
 	<title>
 	<?php
 $t = "";
-
 if (is_category()) {
     $t .= 'Category: ';
     $t .= wp_title('');

@@ -1,7 +1,10 @@
 {
+    "/wordpress/assets/typerocket/js/core.js": "/wordpress/assets/typerocket/js/core.js",
     "/wordpress/assets/templates/js/theme.js": "/wordpress/assets/templates/js/theme.js",
     "/wordpress/assets/templates/css/theme.css": "/wordpress/assets/templates/css/theme.css",
     "/wordpress/assets/templates/css/admin.css": "/wordpress/assets/templates/css/admin.css",
     "/wordpress/assets/typerocket/css/core.css": "/wordpress/assets/typerocket/css/core.css",
-    "/wordpress/assets/typerocket/css/redactor.css": "/wordpress/assets/typerocket/css/redactor.css"
+    "/wordpress/assets/typerocket/css/redactor.css": "/wordpress/assets/typerocket/css/redactor.css",
+    "/wordpress/assets/typerocket/js/location.field.js": "/wordpress/assets/typerocket/js/location.field.js",
+    "/wordpress/assets/templates/js/admin.js": "/wordpress/assets/templates/js/admin.js"
 }

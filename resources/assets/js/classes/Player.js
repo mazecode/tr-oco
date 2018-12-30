@@ -8,7 +8,7 @@ function onYouTubeIframeAPIReady() {
 	events: {
 	  'onReady': onPlayerReady,
 	  'onStateChange': onPlayerStateChange
-	}
+	} 
   });
 }
 

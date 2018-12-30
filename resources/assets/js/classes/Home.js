@@ -1,33 +1,51 @@
 export default class Home {
-    constructor() {
+    constructor(count = 0) {
+        this.count = count
+
         this.init()
     }
 
     async init() {
-        const products = await document.getElementById('products')
-        const projects = await document.getElementById("projects")
+        console.debug('init')
+        
+        this.makeItLinks()
+    }
 
-        if (products) {
-            products.onclick = () => {
-                window.location.href = products.getAttribute('redirect-to')
-            };
+    makeItLinks() {
+        var products = document.getElementById('products')
+        var projects = document.getElementById("projects")
+
+        try {
+            if (products) {
+                products.onclick = () => {
+                    console.debug('click')
+                    this.count++
+                    window.location.href = products.getAttribute('redirect-to')
+                };
+            }
+            if (projects) {
+                projects.onclick = () => {
+                    console.debug('click')
+                    this.count++
+                    window.location.href = projects.getAttribute('redirect-to')
+                };
+            }
         }
-        if (projects) {
-            projects.onclick = () => {
-                window.location.href = projects.getAttribute('redirect-to')
-            };
+        catch (err) {
+            console.error(err)
         }
-        await this.videoInit();
     }
 
     async videoInit() {
+        console.debug('video init')
+
         let firstScriptTag;
 
         let tag = await document.createElement('script')
-
+        tag.id = "youtubeIframAPI"
         tag.src = 'https://www.youtube.com/iframe_api';
         firstScriptTag = document.getElementsByTagName('script')[0]
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+        await firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
     }
 
     async initYoutube(playerDiv, videoId, options, closure) {
@@ -39,6 +57,13 @@ export default class Home {
             const pDiv = document.createElement('div')
             pDiv.id = playerDiv
             playerDiv = pDiv
+        }
+
+        if(typeof closure != 'function') {
+            closure = `(playerDiv, options) => { 
+                console.debug('hello')
+                return new YT.Player(playerDiv.id, options) 
+            }`;
         }
 
         try {
@@ -73,8 +98,9 @@ export default class Home {
                 }
             }
 
-            const player = closure();
-            // const player = new YT.Player(playerDiv.id, options)
+            // return closure();
+            
+            const player = new window['YT'].Player(playerDiv.id, options)
             return player
         } catch (err) {
             console.error(err)
@@ -82,7 +108,11 @@ export default class Home {
     }
 
     async youtube() { // async onYouTubeIframeAPIReady() {
-        await this.initYoutube('player0', '3KtJ2yZWErQ')
-        await this.initYoutube('player1', 'gPEW0gZK6Ho')
+        await this.initYoutube('player0', '3KtJ2yZWErQ', null, (playerDiv, options) => {
+            return new YT.Player(playerDiv.id, options)
+        })
+        await this.initYoutube('player1', 'gPEW0gZK6Ho', null, (playerDiv, options) => {
+            return new YT.Player(playerDiv.id, options)
+        })
     }
 }

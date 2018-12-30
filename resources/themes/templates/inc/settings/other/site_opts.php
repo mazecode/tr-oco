@@ -54,8 +54,8 @@ remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
-// function themeslug_filter_front_page_template($template)
-// {
-//     return is_home() ? '' : $template;
-// }
-// add_filter('frontpage_template', 'themeslug_filter_front_page_template');
+function themeslug_filter_front_page_template($template)
+{
+    return is_home() ? '' : $template;
+}
+add_filter('frontpage_template', 'themeslug_filter_front_page_template');

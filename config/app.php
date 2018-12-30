@@ -33,7 +33,7 @@ return [
     | A 'random' string of text to help with security from time to time.
     |
      */
-    'seed' => 'PUT_TYPEROCKET_SEED_HERE',
+    'seed' => 'seed_5c201d8c5df0b',
 
     /*
     |--------------------------------------------------------------------------
