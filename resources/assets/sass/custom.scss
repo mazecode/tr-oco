@@ -25,12 +25,8 @@ $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
 
-$font-family-sans-serif: 'Montserrat',
-'Lato',
-sans-serif;
-$headings-font-family: 'Open Sans',
-'Cinzel',
-serif;
+// $font-family-base: 'Montserrat', 'Lato', $font-family-sans-serif;
+// $headings-font-family: 'Montserrat', 'Open Sans', 'Cinzel', serif;
 
 $font-weight-light: 100 !default;
 $font-weight-normal: 400 !default;
@@ -73,3 +69,11 @@ $spacer: 1rem !default;
 
 // $fa-font-path: "../../../node_modules/@fortawesome/fontawesome-free/webfonts" !default;
 $btn-border-focus: $blue;
+
+$breakpoint-mobile: 575.98px;
+$breakpoint-tablet: 768px;
+$breakpoint-large: 1024px;
+
+
+// Font Awesome
+$fa-font-path: "../fonts";

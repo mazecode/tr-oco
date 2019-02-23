@@ -15,19 +15,36 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('./');
 
+// Front End
+mix
+    .js('resources/assets/js/front-page.js', 'wordpress/assets/templates/js')
+    .sass('resources/assets/sass/front-page.scss', 'wordpress/assets/templates/css')
+    .options({
+        processCssUrls: false 
+    }); 
+
 // Theme
 mix
     .js('resources/assets/js/theme.js', 'wordpress/assets/templates/js')
     .sass('resources/assets/sass/theme.scss', 'wordpress/assets/templates/css')
+    .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'wordpress/assets/templates/fonts') 
     .options({
         processCssUrls: false
     });
 
-// // Admin
+// Admin
 mix
     .js('resources/assets/js/admin.js', 'wordpress/assets/templates/js')
     .sass('resources/assets/sass/admin.scss', 'wordpress/assets/templates/css')
     .options({
+        processCssUrls: false
+    }); 
+
+// Maintenance
+mix
+    .js('resources/assets/js/maintenance.js', 'wordpress/assets/templates/js')
+    .sass('resources/assets/sass/maintenance.scss', 'wordpress/assets/templates/css')
+    .options({ 
         processCssUrls: false
     });
 
@@ -41,4 +58,4 @@ mix
     .copyDirectory('vendor/typerocket/core/assets/js/lib', 'wordpress/assets/typerocket/js/lib')
     .options({
         processCssUrls: false
-    });
+    }); 

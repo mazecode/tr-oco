@@ -11,7 +11,6 @@
 | Happy themes!
 |
  */
-
 add_filter('deprecated_argument_trigger_error', function () {
     return false;
 });
@@ -41,21 +40,12 @@ add_action('after_setup_theme', 'woocommerce_support');
 
 add_action('pre_get_posts', function ($loop) {
     if (is_admin() || !$loop->is_main_query()) {
-        // do nothing if in the admin or not in the main loop
-        return;
-    }
-
-    if (is_home()) {
-        // $loop->queried_object->set('post_type', 'project');
-        $loop->set('posts_per_page', 15);
-        $loop->set('post_type', 'project');
-        // d($loop);
         return;
     }
 
     if (is_post_type_archive('project')) {
         $loop->set('post_type', 'project');
-        $loop->set('posts_per_page', 20);
+        $loop->set('posts_per_page', 2);
         return;
     }
 
@@ -64,6 +54,13 @@ add_action('pre_get_posts', function ($loop) {
         $loop->set('posts_per_page', 20);
         return;
     }
+
+    if (is_home()) {
+        // $loop->queried_object->set('post_type', 'project');
+        $loop->set('posts_per_page', 20);
+        $loop->set('post_type', 'product');
+        return;
+    }   
 }, 1);
 
 add_filter('body_class', function ($classes) {
@@ -95,19 +92,17 @@ add_filter('body_class', function ($classes) {
 
 });
 
+// LIBS
+require_once 'libs/bs4navwalker.php';
+require_once 'libs/bs4navFullScreenWalker.php';
+
+// BASE SETTINGS
+require_once 'inc/_theme.php'; // Theme Dashboard
 require_once 'inc/_admin.php'; // Admin Dashboard
 require_once 'inc/_projects.php'; // Projects
 require_once 'inc/_products.php'; // Products
 require_once 'inc/_assets.php';// Assets Admin|Theme
 
-require_once 'inc/settings/theme-options.php';
-require_once 'inc/settings/social.php';
-require_once 'inc/settings/taxonomies.php';
-require_once 'inc/settings/post-types.php';
-require_once 'inc/settings/nav-menus.php';
-require_once 'inc/settings/widgets.php';
-require_once 'inc/settings/image-sizes.php';
-require_once 'inc/settings/other/site_opts.php';
 
 // Include Woocommerce Customisations
 if (class_exists('WooCommerce')) {

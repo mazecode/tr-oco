@@ -1,9 +1,4 @@
-<?php 
-
-echo "Hello World";
-die;
-
-?>
+<?php var_dump('Keep away! You fucking bastard'); die; ?>
 
 
 <h1>Hello Cloudreach!</h1>

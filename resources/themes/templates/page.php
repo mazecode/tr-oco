@@ -50,5 +50,4 @@ if (class_exists('WooCommerce') && is_woocommerce() ||
 		endif;
 	}
 
-
 	get_footer();

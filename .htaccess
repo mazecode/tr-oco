@@ -8,11 +8,10 @@
 #     </IfModule>
 
 #     RewriteEngine on
-#     RewriteCond %{HTTP_HOST} ^ocodesign.es$ [NC,OR]
-#     RewriteCond %{HTTP_HOST} ^www.ocodesign.es$
-  
-#     # RewriteBase /
+#     # RewriteCond %{HTTP_HOST} ^ocodesign.es$ [NC,OR]
+#     # RewriteCond %{HTTP_HOST} ^www.ocodesign.es$
 
+#     # RewriteBase /
 #     RewriteCond %{REQUEST_URI} !^/wordpress/
 #     RewriteRule (.*) /wordpress/$1 [L]
     

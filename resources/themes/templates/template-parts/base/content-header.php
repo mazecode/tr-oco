@@ -2,15 +2,14 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-faded">
         <div class="container">
             <a class="navbar-brand" href="<?= get_bloginfo('url'); ?>">
-           
             <?php
-            // $logo = get_field('logo', 'options');
+            $logo = get_field('logo', 'options');
             
-            // if ( $logo ) {
-            // 	echo '<img src="'.$logo['sizes']['large'].'" alt="'.get_bloginfo('name').'" class="img-fluid"/>';
-            // } else {
-                // echo get_bloginfo('name');
-            // }
+            if ( $logo ) {
+            	echo '<img src="'.$logo['sizes']['large'].'" alt="'.get_bloginfo('name').'" class="img-fluid"/>';
+            } else {
+                echo get_bloginfo('name');
+            }
 
             $output = null;
 

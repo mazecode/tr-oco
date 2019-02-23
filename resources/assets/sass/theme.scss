@@ -1,28 +1,15 @@
-@import "./main.scss";
+@import 'main';
 
-$breakpoint-mobile: 575.98px;
-$breakpoint-tablet: 768px;
-$breakpoint-large: 1024px;
-
-// Resetting from the mobile up!
-// 
-// Dropping the root* element font size to 14px is something
-// I do on almost all projects, a 16px font size on mobiles
-// is not normally needed. --> Only my opinion of course!
-//
-// At mobile size I used the scale "Major Second" from 
-// type-cale.com to set out the heading sizes as well as the
-// "Major Third" scale for the .display-* classes however my
-// technique was to begin the scale from the h1's front size.
-// To do this simply do the h1 font size * scale size. So in 
-// in this example it was 1.602 * 1.250 = 2.0025 I went with 
-// 2em to keep it simple.
-//
-//------------------------------------------------------------//
-html, 
+html,
 body {
 	font-size: 14px !important;
 }
+
+// header {
+// }
+
+// footer {
+// }
 
 h1 {
 	font-size: 1.602em;
@@ -65,12 +52,12 @@ h6 {
 }
 
 // Medium devices (tablets, 48em and up)
-// 
+//
 // At this point you have overridden Bootstraps rem's and are
-// into module based font sizes should you require it. 
+// into module based font sizes should you require it.
 //
 // I took a while over this change because I felt that there
-// is no reason why I cant use a modified scale on another 
+// is no reason why I cant use a modified scale on another
 // device size. So I did, the headings have now taken on
 // "Perfect Fourth" and the dislpay-* has been put to the
 // Bootstrap defaults.
@@ -112,7 +99,6 @@ h6 {
 
 // Large devices (desktops, 62em and up)
 @media (min-width: 62em) {
-
 	html,
 	body {
 		font-size: 16px !important;
@@ -121,7 +107,6 @@ h6 {
 
 // Extra large devices (large desktops, 75em and up)
 @media (min-width: 75em) {
-
 	html,
 	body {
 		font-size: 18px !important;
@@ -145,410 +130,253 @@ h6 {
 	}
 }
 
-/***
- THEMEES
-*/
-
 .bg-white-80 {
 	background: $white-80;
 }
 
-
+// ========================
+//  || NAVBAR TOP MENU  ||
+// ========================
 #menu-container {
 	height: 100%;
 }
 
-.video {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	z-index: -1000;
-	transition: transform .2s;
-	// min-width: 100%;
-	// min-height: 100%;
-	// width: auto;
-	// height: auto;
-	// transform: translate(-45%, -10%);
-}
-
-.video-bg {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1000;
-	transition: transform .5s ease-out;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	overflow: hidden;
-}
-
-.video-bg::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.48);
-}
-
-.video-bg>video {
-	position: absolute;
-	top: 0;
-	left: 0;
+.main-menu {
 	width: 100%;
 	height: 100%;
+	opacity: 0;
+	visibility: hidden;
+}
+.nav-open .main-menu {
+	opacity: 1;
+	visibility: visible;
+	background: $primary; // rgba(0, 0, 0, 0.92);
+}
+.main-menu .nav li a {
+	color: #fff;
+	font-size: 5vh;
+	font-weight: 600;
+}
+.main-menu .nav li {
+	opacity: 0;
+	-webkit-transform: translateY(-40px);
+	transform: translateY(-40px);
+	-webkit-animation-timing-function: cubic-bezier(0.45, 0.005, 0, 1);
+	-moz-animation-timing-function: cubic-bezier(0.45, 0.005, 0, 1);
+	-o-animation-timing-function: cubic-bezier(0.45, 0.005, 0, 1);
+	animation-timing-function: cubic-bezier(0.45, 0.005, 0, 1);
+}
+.nav-open .main-menu .nav li {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	transform: translateY(0px);
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+	transition: transform 0.2s, opacity 0.2s;
+}
+.main-menu .nav li.delay-1 {
+	-webkit-transition-delay: 0.1s;
+	-moz-transition-delay: 0.1s;
+	-ms-transition-delay: 0.1s;
+	-o-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+.main-menu .nav li.delay-2 {
+	-webkit-transition-delay: 0.2s;
+	-moz-transition-delay: 0.2s;
+	-ms-transition-delay: 0.2s;
+	-o-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+.main-menu .nav li.delay-3 {
+	-webkit-transition-delay: 0.3s;
+	-moz-transition-delay: 0.3s;
+	-ms-transition-delay: 0.3s;
+	-o-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+.main-menu .nav li.delay-4 {
+	-webkit-transition-delay: 0.4s;
+	-moz-transition-delay: 0.4s;
+	-ms-transition-delay: 0.4s;
+	-o-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+}
+.main-menu .nav li.delay-5 {
+	-webkit-transition-delay: 0.5s;
+	-moz-transition-delay: 0.5s;
+	-ms-transition-delay: 0.5s;
+	-o-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+.main-menu .nav li.delay-6 {
+	-webkit-transition-delay: 0.6s;
+	-moz-transition-delay: 0.6s;
+	-ms-transition-delay: 0.6s;
+	-o-transition-delay: 0.6s;
+	transition-delay: 0.6s;
+}
+.main-menu .nav li.delay-7 {
+	-webkit-transition-delay: 0.7s;
+	-moz-transition-delay: 0.7s;
+	-ms-transition-delay: 0.7s;
+	-o-transition-delay: 0.7s;
+	transition-delay: 0.7s;
+}
+.main-menu .nav li.delay-8 {
+	-webkit-transition-delay: 0.8s;
+	-moz-transition-delay: 0.8s;
+	-ms-transition-delay: 0.8s;
+	-o-transition-delay: 0.8s;
+	transition-delay: 0.8s;
+}
+.main-menu .nav li.delay-9 {
+	-webkit-transition-delay: 0.9s;
+	-moz-transition-delay: 0.9s;
+	-ms-transition-delay: 0.9s;
+	-o-transition-delay: 0.9s;
+	transition-delay: 0.9s;
 }
 
-/* 1. No object-fit support: */
-@media (min-aspect-ratio: 16/9) {
-	.video-bg>video {
-		height: 300%;
-		top: -100%;
-	}
-}
-
-@media (max-aspect-ratio: 16/9) {
-	.video-bg>video {
-		width: 300%;
-		left: -100%;
-	}
-}
-
-
-/* 2. If supporting object-fit, overriding (1): */
-@supports (object-fit: cover) {
-	.video-bg>video {
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-}
-
-// @media (max-width: $breakpoint-mobile) {
-
-// 	//Manage Display Headers for Mobile Devices
-// 	.display-1 {
-// 		font-size: 3rem;
-// 		font-weight: 300;
-// 		line-height: 1.0;
-// 	}
-
-// 	.display-2 {
-// 		font-size: 2.75rem;
-// 		font-weight: 300;
-// 		line-height: 1.0;
-// 	}
-
-// 	.display-3 {
-// 		font-size: 2.25rem;
-// 		font-weight: 300;
-// 		line-height: 1.0;
-// 	}
-
-// 	.display-4 {
-// 		font-size: 1.88rem;
-// 		font-weight: 300;
-// 		line-height: 1.0;
-// 	}
-// }
-
-#logotype {
-	z-index: 4;
-}
-
-#products,
-#projects {
+.nav-button {
 	position: relative;
-	float: left;
-	width: 50%;
-	height: 100%;
-	overflow: hidden;
-
-	transition: .25s ease;
-	-moz-transition: .25s ease;
+	z-index: 1111;
+	// border: solid 1px #f8f8f8;
+	height: 42px;
+	display: block;
+	width: 50px;
+	padding: 12px;
+}
+.nav-button #nav-icon3 {
+	width: 24px;
+	height: 22px;
+	display: inline-block;
+	position: relative;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
 	cursor: pointer;
-	cursor: hand;
-
-	&:hover {
-		background-origin: content-box;
-		background-size: cover;
-
-		h2 {
-			font-weight: bold !important;
-		}
-
-		// .video {
-		// 	transform: scale(1.5);
-		// }
-	}
-
-	h2 {
-		font-family: 'Cinzel';
-
-		transition-property: font-weight;
-		transition-duration: .2s, 1s;
-		transition-timing-function: linear, ease-in;
-		transition-delay: 0s, 1s;
-		z-index: 4;
-
-		@media only screen and (max-width: $breakpoint-mobile) {
-			font-size: 3rem;
-		}
-
-		@media only screen and (min-width: $breakpoint-tablet) {
-			font-size: 5.2rem;
-		}
-
-		@media only screen and (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-large - 1) {
-			font-size: 5.5rem;
-			font-size-adjust: 0.58;
-		}
-	}
 }
-
-#projects {
-	background-color: rgba($blue, .25);
+.nav-button #nav-icon3 span {
+	display: block;
+	position: absolute;
+	height: 3px;
+	width: 100%;
+	background: #ffffff;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.25s ease-in-out;
+	-moz-transition: 0.25s ease-in-out;
+	-o-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out;
 }
-
-#products {
-	background-color: rgba($green, .25);
-}
-
-/**
-
-*/
-
-body.maintenance-mode {
-	display: flex;
-	background-image: url(https://ocodesign.es/wp-content/uploads/2018/10/salon2-4-2-sin-tv.jpg);
-	background-size: cover;
-	background-position: center center;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	position: relative;
+.nav-button #nav-icon3 span:nth-child(1) {
 	top: 0;
-	bottom: 0;
-	height: 100%;
-	z-index: 1;
-
-	// &:before {
-	#overlay {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		// background-color: $gray-900;
-		// background-color: rgba($gray-900, 0.6);
-		width: 100vw;
-		height: 100%;
-		overflow: hidden;
-		z-index: -5;
-	}
-
-	#content {
-		padding: $spacer * 3;
-
-	}
-
-	h2 {
-		font-size: bold;
-		letter-spacing: -0.15rem;
-	}
-
-	img.logo {
-		width: 25%;
-	}
-
-	form {
-		i {
-			color: $primary;
-		}
-
-		input:-webkit-autofill,
-		textarea:-webkit-autofill,
-		select:-webkit-autofill {
-			background: rgba($white, .8) !important;
-			background-image: none !important;
-			color: $green !important;
-		}
-
-		input {
-			padding: 20px;
-			vertical-align: middle;
-			margin: auto 0;
-		}
-
-		input:focus,
-		button:focus,
-		select:focus {
-			outline: none;
-		}
-
-		.form-control {
-			outline: none;
-			box-shadow: none !important;
-			border: 0px solid #ccc !important;
-			line-height: 1.2px;
-
-			&:focus {
-				background: transparent !important;
-				outline: none;
-				box-shadow: none !important;
-				border: 0px solid #ccc !important;
-			}
-		}
-
-		.form-inline .input-group,
-		.form-inline .custom-select {
-			padding: 4px;
-		}
-
-		.input-group {
-			padding: 1px;
-			border-bottom: 5px dotted $primary;
-		}
-
-
-		.input-group-text {
-			background: transparent;
-			border: none;
-		}
-
-		.input-group {
-			// border-bottom: 1px solid black;
-
-			&:before {
-				// background: red;
-			}
-		}
-	}
-
-	.social {
-		text-align: left;
-		display: table;
-		vertical-align: middle;
-	}
-
-	.social a {
-		margin: 0 10px 0 0;
-		color: #333;
-		display: inline-block;
-		width: 40px;
-		height: 40px;
-		border-radius: 20px;
-		line-height: 40px;
-		font-size: 13px;
-		text-align: center;
-		-webkit-transition: all .2s ease-out;
-		-moz-transition: all .2s ease-out;
-		transition: all .2s ease-out;
-		vertical-align: bottom;
-		border: solid 1px #333
-	}
-
-	.social a i {
-		vertical-align: bottom;
-		line-height: 40px
-	}
-
-	.social a:hover {
-		background: transparent
-	}
-
-	.social a:hover.facebook {
-		color: #4460ae;
-		border-color: #4460ae
-	}
-
-	.social a:hover.gplus {
-		color: #c21f25;
-		border-color: #c21f25
-	}
-
-	.social a:hover.twitter {
-		color: #3cf;
-		border-color: #3cf
-	}
-
-	.social a:hover.instagram {
-		color: #cd4378;
-		border-color: #cd4378
-	}
-
-	.social a:hover.email {
-		color: #4a7f45;
-		border-color: #4a7f45
-	}
-
-	.social a:hover.link {
-		color: #871AFF;
-		border-color: #871AFF
-	}
-
-
-	.effect-19 {
-		z-index: 1;
-
-		~label {
-			color: $primary;
-			width: auto;
-			left: 40px;
-			top: 12px;
-			z-index: 0;
-		}
-
-		&:focus~label {
-			top: -18px !important;
-			left: 0;
-			color: inherit;
-		}
-	}
-
-	@media only screen and (max-width: $breakpoint-mobile) {
-		#content {
-			padding: $spacer;
-		}
-
-		img.logo {
-			width: 30%;
-			text-align: center;
-		}
-
-		.social {
-			text-align: center;
-			display: block;
-		}
-	}
-
-	@media only screen and (max-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet -1) {
-		#content {
-			padding: $spacer * .5;
-		}
-	}
-
-	@media only screen and (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-large - 1) {
-		#content {}
-	}
+}
+.nav-button #nav-icon3 span:nth-child(2),
+#nav-icon3 span:nth-child(3) {
+	top: 7px;
+}
+.nav-button #nav-icon3 span:nth-child(4) {
+	top: 14px;
+}
+.nav-open #nav-icon3 span:nth-child(1) {
+	top: 9px;
+	width: 0;
+	left: 50%;
+}
+.nav-open #nav-icon3 span:nth-child(2) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.nav-open #nav-icon3 span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.nav-open #nav-icon3 span:nth-child(4) {
+	top: 9px;
+	width: 0;
+	left: 50%;
 }
 
+.flex-center {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 100%;
+}
 
+/* display this row with flex and use wrap (= respect columns' widths) */
 
-// #maintenance-content-overlay:before {
-// 	content: ‘’;
-// 	width: 300px;
-// 	height: 400px;
-// 	background: inherit;
-// 	left: -25px;
-// 	right: 0;
-// 	top: -25px;
-// 	bottom: 0;
-// 	box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.3);
-// 	filter: blur(10px);
-// }
+.row-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* vertical spacing between columns */
+
+[class*='col-'] {
+	// margin-bottom: 30px;
+}
+
+.content {
+	height: 100%;
+	padding: 20px 20px 10px;
+	color: #fff;
+}
+
+/* Demo backgrounds and styling*/
+
+.colour-1 {
+	background: #483c46;
+	color: #fff;
+}
+
+.colour-2 {
+	background: #3c6e71;
+}
+
+.colour-3 {
+	background: #70ae6e;
+}
+
+.colour-4 {
+	background: #82204a;
+}
+
+.colour-5 {
+	background: #558c8c;
+}
+
+.colour-6 {
+	background: #917c78;
+}
+
+.product {
+	.product-header {
+		height: 50px;
+		overflow: hidden;
+	}
+}

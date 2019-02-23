@@ -10,11 +10,10 @@
  * @package brix_portfolio
  */
 ?>
-
 	</body>
-	<footer class="container-fuid">
-		<div class="row flex">
-			<div class="col-12">
+	<footer class="container-fluid clearfix fixed-bottom">
+		<div class="row">
+			<div class="col pt-4">
 				<p class="text-center">
 					&copy; <?= date('Y'); ?> - <?= get_bloginfo('sitename'); ?>
 				</p>

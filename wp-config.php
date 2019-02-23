@@ -23,16 +23,16 @@
 // mysql://root:symf0ny@mysql:3306/individual-vocabulary
 
 /** The name of the database for WordPress */
-define('DB_NAME', 'homestead'); 
+define('DB_NAME', 'homestead');
 
 /** MySQL database username */
-define('DB_USER', 'homestead');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'secret'); 
- 
+define('DB_PASSWORD', 'toor');
+
 /** MySQL hostname */
-define('DB_HOST', 'mariadb');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -86,10 +86,10 @@ define('WP_DEBUG_LOG', true);
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-    define('ABSPATH', dirname(__FILE__) . '/');
+if (!defined('ABSPATH')) define('ABSPATH', dirname(__FILE__) . '/');
 
-require __DIR__ . '/init.php'; // Include TypeRocket
+// Include TypeRocket
+require __DIR__ . '/init.php'; 
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

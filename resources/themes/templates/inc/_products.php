@@ -1,15 +1,17 @@
 <?php
 
+/**
+ * Main Object - Products
+ */
 $products = tr_post_type('Product', 'Products')
     ->setIcon('books')
     ->setTitlePlaceholder('Enter product name/title')
     ->setSlug('product')
     ->setAdminOnly()
-    ->setArchivePostsPerPage(-1);
-
-$args = $products->getArguments();
-$args = array_merge($args, ['public' => true]);
-$products->setArguments($args);
+    ->setArchivePostsPerPage(-1)
+    // ->setRest('products')
+    ;
+$products->setArguments(array_merge($products->getArguments(), ['public' => true]));
 
 $products->setTitleForm(function () {
     $form = tr_form();
@@ -17,7 +19,9 @@ $products->setTitleForm(function () {
     echo $form->image('Photo');
 });
 
-// -> Taxonomies
+/**
+ * Taxonomies
+ */
 $pub = tr_taxonomy('Publisher')
     ->setHierarchical()
     ->setMainForm(function () {
@@ -26,7 +30,9 @@ $pub = tr_taxonomy('Publisher')
     })
     ->setSlug('publishers');
 
-// -> Metaboxes
+/**
+ * Metaboxes
+ */
 $meta_prod_gallery = tr_meta_box('Pictures')->setCallback(function () {
     $form = tr_form();
     echo $form->gallery('Gallery')->setSetting('button', 'Insert Images');
@@ -38,6 +44,5 @@ $meta_prod_prize = tr_meta_box('Prizes')->setCallback(function () {
         $form->image('Picture')->setSetting('button', 'Insert Images'),
     ]);
 });
-
 // -> Apply taxonomies and metaboxes
 $products->apply([$meta_prod_gallery, $meta_prod_prize, $pub]);

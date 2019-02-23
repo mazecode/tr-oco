@@ -1,22 +1,30 @@
 {
-    "name": "typerocket/typerocket",
-    "description": "TypeRocket for WordPress.",
-    "keywords": ["framework", "typerocket", "wordpress"],
+    "name": "mazecode/ocodesign",
+    "description": "Oco Design Web Page - Wordpress based",
+    "keywords": [
+        "oco",
+        "design",
+        "ocodesign",
+        "interior",
+        "wordpress",
+        "spain"
+    ],
     "license": "GPL-3.0-or-later",
-    "homepage": "https://typerocket.com",
+    "homepage": "https://ocodesign.es",
     "authors": [
         {
-            "name": "Kevin Dees",
-            "homepage": "https://kevdees.com",
+            "name": "Mazecode",
+            "homepage": "https://ocodesign.es",
             "role": "Creator"
+        },
+        {
+            "name": "Ester Medina Pérez",
+            "homepage": "https://ocodesign.es",
+            "role": "Owner"
         }
     ],
     "support": {
-        "docs": "https://typerocket.com/docs/v4/"
-    },
-    "require": {
-        "php": ">=7",
-        "typerocket/core": "4.0.*"
+        "docs": "https://ocodesign.es/"
     },
     "autoload": {
         "psr-4": {
@@ -24,12 +32,17 @@
         }
     },
     "scripts": {
+        "start": "php -S localhost:8080 -t wordpress/",
         "post-create-project-cmd": [
             "php galaxy config:seed"
         ]
     },
     "minimum-stability": "beta",
+    "require": {
+        "php": ">=7",
+        "typerocket/core": "4.0.*"
+    },
     "require-dev": {
-        "mazecode/wp-dd": "^1.0"
+        "mazecode/dumpper": "^1.0"
     }
 }

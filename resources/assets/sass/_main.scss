@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Cinzel:400,700,900|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
+
+
+// Bootstrap (Select only what you need to keep final css file minimal)
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+// Main Theme Variable Overrides
+@import './custom.scss';
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/root";
+@import "../../../node_modules/bootstrap/scss/print";
+@import "../../../node_modules/bootstrap/scss/reboot";
+@import "../../../node_modules/bootstrap/scss/type";
+@import "../../../node_modules/bootstrap/scss/images";
+// @import "../../../node_modules/bootstrap/scss/code";
+@import "../../../node_modules/bootstrap/scss/grid";
+// @import "../../../node_modules/bootstrap/scss/tables";
+@import "../../../node_modules/bootstrap/scss/forms"; 
+@import "../../../node_modules/bootstrap/scss/buttons";
+@import "../../../node_modules/bootstrap/scss/transitions";
+@import "../../../node_modules/bootstrap/scss/dropdown";  
+@import "../../../node_modules/bootstrap/scss/button-group"; 
+@import "../../../node_modules/bootstrap/scss/input-group";
+@import "../../../node_modules/bootstrap/scss/custom-forms";
+@import "../../../node_modules/bootstrap/scss/nav";
+@import "../../../node_modules/bootstrap/scss/navbar";
+// @import "../../../node_modules/bootstrap/scss/card";
+// @import "../../../node_modules/bootstrap/scss/breadcrumb";
+// @import "../../../node_modules/bootstrap/scss/pagination";
+// @import "../../../node_modules/bootstrap/scss/badge";
+// @import "../../../node_modules/bootstrap/scss/jumbotron";
+// @import "../../../node_modules/bootstrap/scss/alert";
+// @import "../../../node_modules/bootstrap/scss/progress";
+@import "../../../node_modules/bootstrap/scss/media";
+// @import "../../../node_modules/bootstrap/scss/list-group";
+// @import "../../../node_modules/bootstrap/scss/close";
+// @import "../../../node_modules/bootstrap/scss/modal";
+// @import "../../../node_modules/bootstrap/scss/tooltip";
+// @import "../../../node_modules/bootstrap/scss/popover";
+// @import "../../../node_modules/bootstrap/scss/carousel";
+@import "../../../node_modules/bootstrap/scss/utilities";
+
+
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+
+// // Plugin Styles
+// @import './woocommerce/woocommerce';
+
+// // Component Styles
+@import './effects.scss';

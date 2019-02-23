@@ -1,37 +1,23 @@
-HOME
-
-<?php get_header(); 
-
-if ( is_front_page() ) :
-    get_header( 'home' );
-elseif ( is_page( 'About' ) ) :
-    get_header( 'about' );
-else:
-    get_header();
-endif;
-
-?>
-
-<section class="container">              
-    <?php while (have_posts()) : the_post() ?>
-        <div class="row post-item">
-            <div class="col-12 col-md-4">
-                <a href="<?= the_permalink(); ?>">
-                    <?php echo wp_get_attachment_image((int)tr_posts_field('profile_picture')); ?>
-                    <?php the_post_thumbnail('post-thumbnail', array('class' => 'img-fluid')); ?>
-                </a>
+<?php get_header(); ?>
+    
+<div class="container pt-2 cs-style-6">
+    <div class="row row-flex grid">
+        <?php while (have_posts()) : the_post() ?>
+            
+            <?php // d((int)tr_posts_field('profile_picture')); ?>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-xl-6 p-0">
+                <figure class="content p-0 effect-apollo">
+                    <img src="http://lorempixel.com/1000/1000/nightlife/" class="mx-auto d-block img-fluid" alt="...">
+                    <?php // wp_get_attachment_image((int)tr_posts_field('profile_picture')); ?>
+                    <figcaption>
+                        <h2><?= the_title(); ?></h2>
+                        <p><?php the_excerpt(); ?></p>
+                        <a class="btn btn-xs btn-primary" href="<?= the_permalink(); ?>">View more</a>
+                    </figcaption>			
+                </figure>
             </div>
-            <div class="col-12 col-md-8">
-                <h2><a href="<?= the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <div class="post-meta">
-                    Posted on <?php the_date(); ?> by <?= the_author_posts_link() ?>
-                </div>
-                <?php the_excerpt(); ?>
-                <a href="<?= the_permalink(); ?>" class="btn btn-primary">Read More</a>
-            </div>
-            <hr/>
-        </div>
-    <?php endwhile; ?>
-</section>
+        <?php endwhile; ?>
+    </div>
+</div>
 
 <?php get_footer(); ?>

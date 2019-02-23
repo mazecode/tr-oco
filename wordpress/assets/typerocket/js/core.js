@@ -60,57 +60,45 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
+/******/ (Array(18).concat([
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(13);
+module.exports = __webpack_require__(19);
 
 
 /***/ }),
-/* 13 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tooling_booyah_js__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tooling_builder_js__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tooling_booyah_js__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tooling_builder_js__ = __webpack_require__(21);
 
 
 
 window.Booyah = __WEBPACK_IMPORTED_MODULE_0__tooling_booyah_js__["a" /* default */];
-__webpack_require__(16);
-
-__webpack_require__(17);
-__webpack_require__(18);
-__webpack_require__(19);
-__webpack_require__(20);
-__webpack_require__(21);
 __webpack_require__(22);
+
 __webpack_require__(23);
 __webpack_require__(24);
 __webpack_require__(25);
 __webpack_require__(26);
 __webpack_require__(27);
+__webpack_require__(28);
+__webpack_require__(29);
+__webpack_require__(30);
+__webpack_require__(31);
+__webpack_require__(32);
+__webpack_require__(33);
 Object(__WEBPACK_IMPORTED_MODULE_1__tooling_builder_js__["a" /* default */])();
 
 /***/ }),
-/* 14 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -173,7 +161,7 @@ var Booyah = function () {
 
 
 /***/ }),
-/* 15 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -319,25 +307,43 @@ function trBuilder() {
                             form_group: form_group
                         },
                         success: function success(data) {
-                            var $active_components, $active_fields, html;
+                            var $active_components, $active_fields, html, textLabel, options, ri;
                             data = $(data);
                             $active_fields = $fields.children('.active');
                             $active_components = $components.children('.active');
                             $fields.children().removeClass('active');
                             $components.children().removeClass('active');
+                            textLabel = $that.text();
                             if (img) {
                                 img = '<img src="' + img + '" />';
                             }
-                            html = '<li class="active tr-builder-component-control">' + img + '<span class="tr-builder-component-title">' + $that.text() + '</span><span class="remove tr-remove-builder-component"></span>';
+
+                            options = {
+                                data: data,
+                                textLabel: textLabel,
+                                img: img
+                            };
+
+                            ri = 0;
+
+                            while (TypeRocket.builderCallbacks.length > ri) {
+                                if (typeof TypeRocket.builderCallbacks[ri] === 'function') {
+                                    TypeRocket.builderCallbacks[ri](options);
+                                }
+                                ri++;
+                            }
+
+                            html = '<li class="active tr-builder-component-control">' + options.img + '<span class="tr-builder-component-title">' + options.textLabel + '</span><span class="remove tr-remove-builder-component"></span>';
+
                             if ($active_components.length > 0 && $active_fields.length > 0) {
-                                data.insertAfter($active_fields).addClass('active');
+                                options.data.insertAfter($active_fields).addClass('active');
                                 $active_components.after(html);
                             } else {
-                                data.prependTo($fields).addClass('active');
+                                options.data.prependTo($fields).addClass('active');
                                 $components.prepend(html);
                             }
-                            initComponent(data, $fields);
-                            return $that.removeClass('disabled');
+                            initComponent(options.data, $fields);
+                            $that.removeClass('disabled');
                         },
                         error: function error(jqXHR) {
                             $that.val('Try again - Error ' + jqXHR.status).removeAttr('disabled', 'disabled');
@@ -350,18 +356,19 @@ function trBuilder() {
 }
 
 /***/ }),
-/* 16 */
+/* 22 */
 /***/ (function(module, exports) {
 
-;var TypeRocket = {
+;window.TypeRocket = {
   httpCallbacks: [],
   repeaterCallbacks: [],
   lastSubmittedForm: false,
-  redactorSettings: {}
+  redactorSettings: {},
+  builderCallbacks: []
 };
 
 /***/ }),
-/* 17 */
+/* 23 */
 /***/ (function(module, exports) {
 
 ;window.trUtil = {};
@@ -375,7 +382,7 @@ window.trUtil.delay = function () {
 }();
 
 /***/ }),
-/* 18 */
+/* 24 */
 /***/ (function(module, exports) {
 
 jQuery(document).ready(function ($) {
@@ -432,10 +439,17 @@ jQuery(document).ready(function ($) {
     add_date_picker = function add_date_picker(obj) {
         if ($.isFunction($.fn.datepicker)) {
             $(obj).find('.date-picker[name]').each(function () {
+                var date_format = $(this).data('format');
+                var date_format_picker = 'dd/mm/yy';
+                if (date_format) {
+                    date_format_picker = date_format;
+                }
+
                 $(this).datepicker({
                     beforeShow: function beforeShow(input, inst) {
                         $('#ui-datepicker-div').addClass('typerocket-datepicker');
-                    }
+                    },
+                    dateFormat: date_format_picker
                 });
             });
         }
@@ -499,6 +513,19 @@ jQuery(document).ready(function ($) {
     TypeRocket.repeaterCallbacks.push(add_color_picker);
     TypeRocket.repeaterCallbacks.push(add_editor);
     TypeRocket.repeaterCallbacks.push(add_tabs);
+
+    /*
+    ==========================================================================
+    init tinymce on builder/repeater add
+    ==========================================================================
+    */
+    TypeRocket.repeaterCallbacks.push(function ($template) {
+        var $tinymce = $template.find('.wp-editor-area');
+        $tinymce.each(function () {
+            tinyMCE.execCommand('mceAddEditor', false, $(this).attr('id'));
+        });
+    });
+
     $trContainer.on('input keyup', '.redactor-editor', function () {
         var $textarea = $(this).siblings('textarea');
         $textarea.trigger('change');
@@ -665,7 +692,7 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 19 */
+/* 25 */
 /***/ (function(module, exports) {
 
 ;jQuery.fn.selectText = function () {
@@ -694,7 +721,7 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 20 */
+/* 26 */
 /***/ (function(module, exports) {
 
 ;jQuery.typerocketHttp = {
@@ -798,7 +825,7 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 21 */
+/* 27 */
 /***/ (function(module, exports) {
 
 ;jQuery(document).ready(function ($) {
@@ -833,7 +860,7 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 22 */
+/* 28 */
 /***/ (function(module, exports) {
 
 ;(function ($) {
@@ -935,7 +962,7 @@ jQuery(document).ready(function ($) {
 })(jQuery);
 
 /***/ }),
-/* 23 */
+/* 29 */
 /***/ (function(module, exports) {
 
 ;(function ($) {
@@ -1035,7 +1062,7 @@ jQuery(document).ready(function ($) {
 })(jQuery);
 
 /***/ }),
-/* 24 */
+/* 30 */
 /***/ (function(module, exports) {
 
 ;jQuery(document).ready(function ($) {
@@ -1103,7 +1130,7 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 25 */
+/* 31 */
 /***/ (function(module, exports) {
 
 ;jQuery(document).ready(function ($) {
@@ -1123,6 +1150,7 @@ jQuery(document).ready(function ($) {
             },
             multiple: false
         });
+        temp_frame.uploader.options.uploader.params.allowed_mime_types = 'image';
         temp_frame.on('select', function () {
             var attachment, url;
             attachment = temp_frame.state().get('selection').first().toJSON();
@@ -1140,11 +1168,11 @@ jQuery(document).ready(function ($) {
         return false;
     };
     set_file_uploader = function set_file_uploader(button, field) {
-        var btnTitle, temp_frame, title, typeInput;
+        var btnTitle, temp_frame, title, typeInput, options;
         title = 'Select a File';
         btnTitle = 'Use File';
-        typeInput = '';
-        temp_frame = wp.media({
+        typeInput = button.data('type'); // https://codex.wordpress.org/Function_Reference/get_allowed_mime_types
+        options = {
             title: title,
             button: {
                 text: btnTitle
@@ -1153,7 +1181,11 @@ jQuery(document).ready(function ($) {
                 type: typeInput
             },
             multiple: false
-        });
+        };
+        temp_frame = wp.media(options);
+        if (options.library.type) {
+            temp_frame.uploader.options.uploader.params.allowed_mime_types = options.library.type;
+        }
         temp_frame.on('select', function () {
             var attachment, link;
             attachment = temp_frame.state().get('selection').first().toJSON();
@@ -1184,6 +1216,7 @@ jQuery(document).ready(function ($) {
             },
             multiple: 'toggle'
         });
+        temp_frame.uploader.options.uploader.params.allowed_mime_types = 'image';
         temp_frame.on('select', function () {
             var attachment, field, i, item, l, use_url;
             attachment = temp_frame.state().get('selection').toJSON();
@@ -1249,7 +1282,7 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 26 */
+/* 32 */
 /***/ (function(module, exports) {
 
 ;jQuery(document).ready(function ($) {
@@ -1286,7 +1319,7 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 27 */
+/* 33 */
 /***/ (function(module, exports) {
 
 ;(function ($) {
@@ -1299,4 +1332,4 @@ jQuery(document).ready(function ($) {
 })(jQuery);
 
 /***/ })
-/******/ ]);
+/******/ ]));
