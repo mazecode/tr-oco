@@ -1,9 +1,10 @@
 @import 'main';
 
-@import 'theme/header';
-@import 'theme/slider';
-@import 'theme/navbar';
-@import 'theme/extra';
+@import 'components/header';
+@import 'components/slider';
+@import 'components/navbar';
+@import 'components/extra';
+@import 'components/portfolio';
 
 html,
 body {
