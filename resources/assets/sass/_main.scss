@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Cinzel:400,700,900|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
 
+// Main Theme Variable Overrides
+@import './custom.scss';
 
-// Bootstrap (Select only what you need to keep final css file minimal)
+// Bootstrap (Select only what you need to keep final css file minimal) 
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
 
-// Main Theme Variable Overrides
-@import './custom.scss';
 
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/root";
@@ -44,9 +44,9 @@
 
 
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
-// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
-// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
-// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 
 // // Plugin Styles
 // @import './woocommerce/woocommerce';

@@ -4,7 +4,7 @@ class DevPlugin
 
     public function __construct()
     {
-        if (!function_exists('add_action')) {
+        if ( ! function_exists( 'add_action' )) {
             echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
             exit;
         }
@@ -12,7 +12,7 @@ class DevPlugin
 
     public function setup()
     {
-        add_filter('admin_footer_text', [$this, 'tr_remove_footer_admin']);
+        add_filter( 'admin_footer_text', [$this, 'tr_remove_footer_admin']);
         $settings = [
             'view_file' => __DIR__ . '/page.php',
             'menu' => 'Dev'
@@ -28,4 +28,4 @@ class DevPlugin
 
 }
 
-add_action('typerocket_loaded', [new DevPlugin(), 'setup']);
+add_action( 'typerocket_loaded', [new DevPlugin(), 'setup']);

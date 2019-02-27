@@ -1,17 +1,17 @@
 <?php
-
 return [
     /*
     |--------------------------------------------------------------------------
     | WordPress
     |--------------------------------------------------------------------------
     |
-    | Set to the WordPress root directory.
+    | Set to the WordPress root directory. This will enable new WP specific
+    | Galaxy commands like: SQL, Migrations, and Flushing Permalinks
     |
-    | Example: TR_PATH . '/wordpress'
+    | Example of root installation: TR_PATH . '/wordpress'
     |
- */
-    'wordpress' => TR_PATH . '/wordpress',
+    */
+    'wordpress' => TR_PATH . '/wordpress', // false
 
     /*
     |--------------------------------------------------------------------------
@@ -21,6 +21,6 @@ return [
     | Add your custom commands for Galaxy. TypeRocket commands use Symfony
     | framework see http://symfony.com/doc/current/console.html
     |
-     */
+    */
     'commands' => []
 ];

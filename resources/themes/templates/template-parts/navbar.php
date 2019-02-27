@@ -1,6 +1,6 @@
 <?php if (!is_front_page()) : ?>
 
-<nav class="navbar navbar-light bg-primary mb-4">
+<nav class="navbar sticky-top _navbar-light bg-white">
     <div class="container d-flex justify-content-between">
         <a href="<?= esc_url(trailingslashit(home_url())) ?>" title="<?= esc_attr(get_bloginfo('name')) ?>" class="navbar-brand d-flex align-items-center" rel="home">
             <?php
@@ -26,7 +26,7 @@
             'container' => 'div',
             'container_class' => 'flex-center p-5',
             // 'container_id' => '',
-            'menu_class' => 'nav navbar-nav flex-column',
+            'menu_class' => 'nav navbar-nav flex-column text-center',
             // 'menu_id' => '',
             // 'echo' => true,
             'fallback_cb' => 'wp_page_menu',

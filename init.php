@@ -12,13 +12,14 @@
 |
 | http://typerocket.com
 |
- */
+*/
 
 define('TR_APP_NAMESPACE', 'App');
-define('TR_PATH', __DIR__);
+define('TR_PATH', __DIR__ );
 require __DIR__ . '/vendor/autoload.php';
 
-new \TypeRocket\Core\Config(__DIR__ . '/config');
+new \TypeRocket\Core\Config( __DIR__ . '/config');
 
-if (defined('WPINC')) : (new \TypeRocket\Core\Launcher())->initCore();
-endif;
+if( defined('WPINC') ) {
+    ( new \TypeRocket\Core\Launcher() )->initCore();
+}

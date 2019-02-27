@@ -4,7 +4,6 @@
 import Home from './classes/Home'
 
 let home = new Home()
- 
 
     (() => {
         console.log('body')

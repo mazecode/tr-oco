@@ -1,16 +1,20 @@
 <?php
 
-tr_route()->get('/test', function () {
+tr_route()->get()->match('test')->do(function () {
     dd('testing');
 });
 
-tr_route()->get('/', function () {
-    dd('home /');
-});
-tr_route()->get('/project/all', 'index@Project');
+// tr_route()->get()->match('/')->do(function () {
+//     dd('home /');
+// });
 
-tr_route()->post('/contact/send', 'send@Contact');
-tr_route()->get('/contact/thanks', 'thanks@Contact');
+tr_route()->get()->match('/project/all')->do('index@Project');
+
+tr_route()->get()->match('contact')->do(function(){
+    return tr_view('contacts.form');
+});
+tr_route()->post()->match('/contact/send', 'send@Contact');
+tr_route()->get()->match('/contact/thanks', 'thanks@Contact');
 
 /**
  * Maintenance Mode

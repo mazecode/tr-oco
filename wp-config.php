@@ -29,7 +29,7 @@ define('DB_NAME', 'homestead');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'toor');
+define('DB_PASSWORD', '120712');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

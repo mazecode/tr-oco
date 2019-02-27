@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -20,17 +21,27 @@ mix
     .js('resources/assets/js/front-page.js', 'wordpress/assets/templates/js')
     .sass('resources/assets/sass/front-page.scss', 'wordpress/assets/templates/css')
     .options({
-        processCssUrls: false 
-    }); 
+        processCssUrls: false
+    })
+
+    .version();
 
 // Theme
 mix
     .js('resources/assets/js/theme.js', 'wordpress/assets/templates/js')
     .sass('resources/assets/sass/theme.scss', 'wordpress/assets/templates/css')
-    .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'wordpress/assets/templates/fonts') 
+    .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'wordpress/assets/templates/fonts')
     .options({
         processCssUrls: false
-    });
+    })
+    .version();
+// .webpackConfig({
+//     plugins: [
+//         new GenerateJsonPlugin('asset-version.json', {
+//             version: Math.round((new Date()).getTime() / 1000)
+//         })
+//     ]
+// });
 
 // Admin
 mix
@@ -38,15 +49,17 @@ mix
     .sass('resources/assets/sass/admin.scss', 'wordpress/assets/templates/css')
     .options({
         processCssUrls: false
-    }); 
+    })
+    .version();
 
 // Maintenance
 mix
     .js('resources/assets/js/maintenance.js', 'wordpress/assets/templates/js')
     .sass('resources/assets/sass/maintenance.scss', 'wordpress/assets/templates/css')
-    .options({ 
+    .options({
         processCssUrls: false
-    });
+    })
+    .version();
 
 // TypeRocket Core
 mix
@@ -58,4 +71,9 @@ mix
     .copyDirectory('vendor/typerocket/core/assets/js/lib', 'wordpress/assets/typerocket/js/lib')
     .options({
         processCssUrls: false
-    }); 
+    })
+    .version();
+
+if (mix.inProduction()) {
+    mix.version();
+}

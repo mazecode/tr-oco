@@ -1,11 +1,12 @@
 <?php
 
-if (!function_exists('add_action')) {
+if ( !function_exists( 'add_action' ) ) {
     echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
     exit;
 }
 
-$icons = function () {
+$icons = function()
+{
     $icons = \TypeRocket\Core\Config::locate('app.class.icons');
     $icons = new $icons;
     $generator = new \TypeRocket\Html\Generator();
@@ -14,11 +15,8 @@ $icons = function () {
     echo '<p>' . __('These can be used with custom post types and admin pages.');
     echo '</p><p><input onkeyup="trDevIconSearch()" placeholder="' . __('Enter text to search list...') . '" id="dev-icon-search" /></p><ol id="debug-icon-list">';
     foreach ($icons as $k => $v) {
-        echo $generator->newElement(
-            'li',
-            ['class' => 'tr-icon-' . $k, 'id' => $k],
-            '<strong>' . $k . '</strong><em>.tr-icon-' . $k . '</em>'
-        )->getString();
+        echo $generator->newElement( 'li', ['class' => 'tr-icon-' . $k, 'id' => $k],
+            '<strong>' . $k . '</strong><em>.tr-icon-' . $k . '</em>' )->getString();
     }
     echo '</ol>';
     ?>
@@ -40,13 +38,12 @@ $icons = function () {
         }
     </script>
     <?php
-
 };
 
-$rules = function () {
+$rules = function() {
     echo '<h3><i class="tr-icon-tools"></i>' . __('Rewrite Rules') . '</h3>';
     $rules = get_option('rewrite_rules');
-    if (!empty($rules)) {
+    if(!empty($rules)) {
         echo "<p>If you are using TypeRocket custom routes they will not appear in this list. TypeRocket detects custom routes on the fly.</p>";
         echo '<table class="wp-list-table widefat fixed striped">';
         echo "<thead><tr><th>" . __('Rewrite Rule') . "</th><th>" . __('Match') . "</th></tr></thead>";

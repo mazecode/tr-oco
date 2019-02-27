@@ -1,1 +1,3 @@
-export class
+export class Utils {
+    
+}
