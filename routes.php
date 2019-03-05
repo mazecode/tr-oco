@@ -8,13 +8,16 @@ tr_route()->get()->match('test')->do(function () {
 //     dd('home /');
 // });
 
-tr_route()->get()->match('/project/all')->do('index@Project');
+tr_route()->get()->match('project/all')->do('index@Project');
 
-tr_route()->get()->match('contact')->do(function(){
-    return tr_view('contacts.form');
+tr_route()->get()->match('contact')->do(function () {
+    return tr_view('contacts.index');
 });
-tr_route()->post()->match('/contact/send', 'send@Contact');
-tr_route()->get()->match('/contact/thanks', 'thanks@Contact');
+tr_route()->post()->match('contact/mail')->do('sendmail@Contact');
+
+// Maintenance Mode- Contact Form
+tr_route()->post()->match('contact/send')->do('send@Contact');
+tr_route()->get()->match('contact/thanks')->do('thanks@Contact');
 
 /**
  * Maintenance Mode

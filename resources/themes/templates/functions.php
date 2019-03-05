@@ -1,5 +1,5 @@
 <?php
-/*
+ /*
 |--------------------------------------------------------------------------
 | TypeRocket Templates
 |--------------------------------------------------------------------------
@@ -18,12 +18,14 @@ add_filter('deprecated_argument_trigger_error', function () {
 add_action('typerocket_loaded', function () {
     global $pagenow;
 
-    if (tr_options_field('maintenance_mode')
+    if (
+        tr_options_field('maintenance_mode')
         && $pagenow != 'wp-login.php'
         && preg_match('(maintenance)', htmlspecialchars($_SERVER['REQUEST_URI'])) == 0
         && !current_user_can('manage_options')
         && !is_admin()
-        && !isset($_POST)) {
+        && !isset($_POST)
+    ) {
         return tr_redirect()->toURL(home_url('/maintenance'))->now();
     }
 });
@@ -60,7 +62,7 @@ add_action('pre_get_posts', function ($loop) {
         $loop->set('posts_per_page', 20);
         $loop->set('post_type', 'product');
         return;
-    }   
+    }
 }, 1);
 
 add_filter('body_class', function ($classes) {
@@ -89,7 +91,6 @@ add_filter('body_class', function ($classes) {
     }
 
     return $classes;
-
 });
 
 // LIBS
@@ -101,7 +102,7 @@ require_once 'inc/_theme.php'; // Theme Dashboard
 require_once 'inc/_admin.php'; // Admin Dashboard
 require_once 'inc/_projects.php'; // Projects
 require_once 'inc/_products.php'; // Products
-require_once 'inc/_assets.php';// Assets Admin|Theme
+require_once 'inc/_assets.php'; // Assets Admin|Theme
 
 
 // Include Woocommerce Customisations

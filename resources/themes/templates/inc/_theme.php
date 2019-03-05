@@ -21,6 +21,7 @@ add_action('init', 'register_menus');
 add_image_size('full-width', 1200, 800, true);
 add_image_size('post-thumbnail', 800, 650, true);
 add_image_size('card', 600, 350, true);
+add_image_size('prts', 1000, 100, true);
 
 /**
  * Site Options

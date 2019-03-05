@@ -35,5 +35,5 @@
             "php galaxy config:seed"
         ]
     },
-    "minimum-stability": "beta",
+    "minimum-stability": "beta"
 }

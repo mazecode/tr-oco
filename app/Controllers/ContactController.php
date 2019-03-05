@@ -23,7 +23,7 @@ class ContactController extends Controller
             return $this->response->flashNow('Email no valido, vuelve a intentarlo', 'danger');
             // return $this->response->setStatus(400);
         }
-        
+
         $model = new Contact();
         $model->email = $fields['email'];
         $model->save();
@@ -40,6 +40,36 @@ class ContactController extends Controller
     }
 
     public function thanks()
+    { }
+
+    public function sendmail()
     {
+        $options = [
+            'name' => 'required',
+            'email' => 'required|email'
+        ];
+
+        $fields = $this->request->getFields();
+
+        $validator = tr_validator($options, $fields);
+
+        if ($validator->getErrors()) {
+            return $this->response->flashNow('Existen errores, vuelve a intentarlo nuevamente!', 'warning');
+        }
+
+        $model = new Contact();
+        $model->email = $fields['email'];
+        $model->save();
+
+        add_filter('wp_mail_content_type', function () {
+            return 'text/html';
+        });
+
+        wp_mail($fields['email'], 'Gracias por contactarnos', "<h3>Estamos contentos que nos hayas contactado</h3><p>Nos pondremos en contacto contigo lo antes posible. Saludos cordiales</p>");
+
+        return $this->response->flashNext('Test created!')
+            ->setMessage('Mensaje enviado')
+            ->withFields(['email' => ''])
+            ->exitJson(200);
     }
 }

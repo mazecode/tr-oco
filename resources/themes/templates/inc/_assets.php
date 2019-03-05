@@ -1,5 +1,5 @@
 <?php
-// Define Theme Directory - This points to the /wordpress/assets folder
+ // Define Theme Directory - This points to the /wordpress/assets folder
 define('THEME_DIR', get_template_directory_uri());
 
 // Admin Assets

@@ -76,8 +76,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 window.Booyah = __WEBPACK_IMPORTED_MODULE_0__tooling_booyah_js__["a" /* default */];
-__webpack_require__("./vendor/typerocket/core/assets/js/tooling/global.js");
-
 __webpack_require__("./vendor/typerocket/core/assets/js/tooling/util.js");
 __webpack_require__("./vendor/typerocket/core/assets/js/tooling/typerocket.js");
 __webpack_require__("./vendor/typerocket/core/assets/js/tooling/dev.js");
@@ -383,19 +381,6 @@ jQuery(document).ready(function ($) {
 
 /***/ }),
 
-/***/ "./vendor/typerocket/core/assets/js/tooling/global.js":
-/***/ (function(module, exports) {
-
-;window.TypeRocket = {
-  httpCallbacks: [],
-  repeaterCallbacks: [],
-  lastSubmittedForm: false,
-  redactorSettings: {},
-  builderCallbacks: []
-};
-
-/***/ }),
-
 /***/ "./vendor/typerocket/core/assets/js/tooling/http.js":
 /***/ (function(module, exports) {
 
@@ -510,18 +495,33 @@ jQuery(document).ready(function ($) {
         if (confirm('Remove all items?')) {
             $(field).val('');
             $(button).parent().next().html('');
+            var add = button.prev();
+            add.removeClass('disabled').attr('value', add.data('add'));
         }
         return false;
     };
     $(document).on('click', '.items-list-button', function () {
-        var $ul, name;
+        var $ul, name, limit;
         $ul = $(this).parent().next();
         name = $ul.attr('name');
+        limit = $ul.data('limit');
+        console.log(limit);
         if (name) {
             $ul.data('name', name);
         }
         name = $ul.data('name');
-        $ul.prepend($('<li class="item"><a class="move tr-control-icon tr-control-icon-move"></a><a href="#remove" class="remove tr-control-icon tr-control-icon-remove" title="Remove Item"></a><input type="text" name="' + name + '[]" /></li>').hide().delay(10).slideDown(150).scrollTop('100%'));
+
+        var num_fields = $ul.children().length;
+
+        if (num_fields < limit) {
+            $ul.prepend($('<li class="item"><a class="move tr-control-icon tr-control-icon-move"></a><a href="#remove" class="remove tr-control-icon tr-control-icon-remove" title="Remove Item"></a><input type="text" name="' + name + '[]" /></li>').hide().delay(10).slideDown(150).scrollTop('100%'));
+        }
+
+        if (num_fields + 1 >= limit) {
+            $(this).addClass('disabled').attr('value', $(this).data('limit'));
+        } else {
+            $(this).removeClass('disabled').attr('value', $(this).data('add'));
+        }
     });
     $(document).on('click', '.items-list-clear', function () {
         var field;
@@ -532,6 +532,14 @@ jQuery(document).ready(function ($) {
         $(this).parent().slideUp(150, function () {
             $(this).remove();
         });
+
+        var ul = $(this).parent().parent();
+        var num_fields = ul.children().length;
+
+        if (num_fields <= ul.data('limit')) {
+            var add = ul.prev().find('.items-list-button');
+            add.removeClass('disabled').attr('value', add.data('add'));
+        }
     });
 });
 
@@ -1191,9 +1199,10 @@ jQuery(document).ready(function ($) {
             var obj;
             obj = this;
             $(document).on('click', '.tr-repeater .controls .add', function () {
-                var $fields_div, $group_template, data_name, data_name_filtered, dev_notes, hash, replacement_id, ri;
+                var $fields_div, $group_template, data_name, data_name_filtered, dev_notes, hash, replacement_id, ri, limit, num_fields;
                 $group_template = $($(this).parent().parent().next().clone()).removeClass('tr-repeater-group-template').addClass('tr-repeater-group');
                 hash = new Date().getTime();
+                limit = $group_template.data('limit');
                 replacement_id = $group_template.data('id');
                 dev_notes = $group_template.find('.dev .field span');
                 data_name = $group_template.find('[data-name]');
@@ -1240,13 +1249,25 @@ jQuery(document).ready(function ($) {
                     ri++;
                 }
                 $fields_div = $(this).parent().parent().next().next();
-                $group_template.prependTo($fields_div).hide().delay(10).slideDown(300).scrollTop('100%');
+                num_fields = $fields_div.children().length;
+                if (num_fields < limit) {
+                    $group_template.prependTo($fields_div).hide().delay(10).slideDown(300).scrollTop('100%');
+                }
+
+                if (num_fields + 1 >= limit) {
+                    $(this).addClass('disabled').attr('value', $(this).data('limit'));
+                } else {
+                    $(this).removeClass('disabled').attr('value', $(this).data('add'));
+                }
             });
             $(document).on('click', '.tr-repeater .repeater-controls .remove', function (e) {
                 $(this).parent().parent().slideUp(300, function () {
                     $(this).remove();
                 });
                 e.preventDefault();
+                var $add = $($(this).parent().parent().parent().siblings('.controls').find('.add')[0]);
+                $add.removeClass('disabled');
+                $add.attr('value', $add.data('add'));
             });
             $(document).on('click', '.tr-repeater .repeater-controls .collapse', function (e) {
                 var $group;
@@ -1290,6 +1311,8 @@ jQuery(document).ready(function ($) {
             $(document).on('click', '.tr-repeater .controls .clear', function (e) {
                 if (confirm('Remove all items?')) {
                     $(this).parent().parent().next().next().html('');
+                    var add = $(this).parent().prev().children();
+                    add.removeClass('disabled').attr('value', add.data('add'));
                 }
                 e.preventDefault();
             });

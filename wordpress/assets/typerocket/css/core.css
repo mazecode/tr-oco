@@ -1365,12 +1365,6 @@
   cursor: move;
 }
 
-.repeater-controls [class*="tr-control-icon"] {
-  padding: 9px 0;
-  width: 100%;
-  left: 0;
-}
-
 .repeater-controls .tr-control-icon-remove {
   bottom: 0;
   z-index: 3;
@@ -1379,6 +1373,16 @@
 .repeater-controls .tr-control-icon-move {
   top: 30px;
   z-index: 3;
+}
+
+.repeater-controls [class*="tr-control-icon"] {
+  padding: 9px 0;
+  width: 100%;
+  left: 0;
+}
+
+.repeater-controls [class*="tr-control-icon"]:first-child {
+  top: 0px !important;
 }
 
 .repeater-inputs {

@@ -10,13 +10,15 @@ $products = tr_post_type('Product', 'Products')
     ->setAdminOnly()
     ->setArchivePostsPerPage(-1)
     // ->setRest('products')
-    ;
+;
 $products->setArguments(array_merge($products->getArguments(), ['public' => true]));
 
 $products->setTitleForm(function () {
     $form = tr_form();
-    echo $form->text('Product Title');
-    echo $form->image('Photo');
+    // echo $form->text('Product Title');
+    $img = $form->image('Photo', ['class' => 'img-fluid thumb'])->setRenderSetting('raw'); //->appendStringToAttribute( 'class', ' date-picker' );
+    // dd($img->getRenderSetting());
+    echo $img;
 });
 
 /**

@@ -33,6 +33,10 @@
 </style>
 
 <!--Slider animate text area start-->
+<!-- <div class="container-fluid">
+    <div class="row"></div>
+</div> -->
+
 <div class="slider deep-gray-bg slider-img-bg-6 black-overlay ptb-200">
     <div class="container">
         <div class="slider-text text-center slider-style-2">
