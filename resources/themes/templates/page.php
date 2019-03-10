@@ -1,5 +1,3 @@
-PAGE
-
 <?php get_header();
 
 if (class_exists('WooCommerce') && is_woocommerce() ||

@@ -17084,12 +17084,12 @@ input {
 
 /*-----------------------------------------------------------------------------------
 
-    Template Name: minilow Minimal Portfolio Template.
-    Template URI:minilowmail@gmail.com 
-    Description: This is html5 template
-    Author: minilow
-    Author URI: minilowmail@gmail.com 
-    Version: 1.0
+Template Name: minilow Minimal Portfolio Template.
+Template URI:minilowmail@gmail.com 
+Description: This is html5 template
+Author: minilow
+Author URI: minilowmail@gmail.com 
+Version: 1.0
 
 -----------------------------------------------------------------------------------*/
 .header-position {
@@ -17099,16 +17099,16 @@ input {
   z-index: 9;
 }
 
-.logo {
-  margin-top: 24px;
-}
-
 .logo a {
   color: #222;
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.logo a img {
+  width: 100%;
 }
 
 .logo a span,
@@ -17144,9 +17144,9 @@ input {
 }
 
 /**
-   * Note: I have omitted any vendor-prefixes for clarity.
-   * Adding them is left as an exercise for the reader.
-   */
+* Note: I have omitted any vendor-prefixes for clarity.
+* Adding them is left as an exercise for the reader.
+*/
 /* stiky */
 .header-sticky.sticky {
   -webkit-animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
@@ -17754,44 +17754,133 @@ h1.heading-sub-title {
   left: 50%;
 }
 
+.Menu-list {
+  font-size: 4.25rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: rotateX(-10deg) rotateY(20deg);
+          transform: rotateX(-10deg) rotateY(20deg);
+}
+
+.Menu-list-item {
+  position: relative;
+  color: transparent;
+  cursor: pointer;
+}
+
+.Menu-list-item::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 49%;
+  left: -10%;
+  right: -10%;
+  height: 4px;
+  border-radius: 4px;
+  margin-top: -2px;
+  background: #FF2C75;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  transition: -webkit-transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  transition: transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  transition: transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98), -webkit-transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  z-index: 1;
+}
+
+.Mask {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  color: #FF2C75;
+  top: 0;
+  height: 49%;
+  -webkit-transition: all 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  transition: all 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+}
+
+.Mask span {
+  display: block;
+}
+
+.Mask + .Mask {
+  top: 48.9%;
+  height: 51.1%;
+}
+
+.Mask + .Mask span {
+  -webkit-transform: translateY(-49%);
+          transform: translateY(-49%);
+}
+
+.Menu-list-item:hover .Mask,
+.Menu-list-item:active .Mask {
+  color: #fff;
+  -webkit-transform: skewX(12deg) translateX(5px);
+          transform: skewX(12deg) translateX(5px);
+}
+
+.Menu-list-item:hover .Mask + .Mask,
+.Menu-list-item:active .Mask + .Mask {
+  -webkit-transform: skewX(12deg) translateX(-5px);
+          transform: skewX(12deg) translateX(-5px);
+}
+
+.Menu-list-item:hover::before,
+.Menu-list-item:active::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 /*-----------------------------------------------------------------------------------
 
-    Template Name: minilow Minimal Portfolio Template.
-    Template URI:minilowmail@gmail.com 
-    Description: This is html5 template
-    Author: minilow
-    Author URI: minilowmail@gmail.com 
-    Version: 1.0
+Template Name: minilow Minimal Portfolio Template.
+Template URI:minilowmail@gmail.com 
+Description: This is html5 template
+Author: minilow
+Author URI: minilowmail@gmail.com 
+Version: 1.0
 
 --------------------------------------------------------------------------------------
-    
-    CSS INDEX
-    ===================
-	
-    1. Theme Default CSS (body, link color, section etc)
-	2. default button style
-	3. about us 
-	4. contact us
-	5. newslatter area
-	6. FUN COUNTER AREA
-	7. brand carsoule
-	8. Scroll UP
-	//imported Css
-	@import url("default.css");
-	@import url("hamburgers.min.css");
-	@import url("header.css");
-	@import url("animate-headline.css");
-	@import url("slider.css");
-	@import url("portfolio.css");
-	@import url("service.css");
-	@import url("testimonial.css");
-	@import url("breadcrumb.css");
-	@import url("blog.css");
-	@import url("footer.css");
-	@import url("team.css");
-	@import url("pricing-table.css");
-	@import url("single-blog.css");
-	
+
+CSS INDEX
+===================
+
+1. Theme Default CSS (body, link color, section etc)
+2. default button style
+3. about us 
+4. contact us
+5. newslatter area
+6. FUN COUNTER AREA
+7. brand carsoule
+8. Scroll UP
+//imported Css
+@import url("default.css");
+@import url("hamburgers.min.css");
+@import url("header.css");
+@import url("animate-headline.css");
+@import url("slider.css");
+@import url("portfolio.css");
+@import url("service.css");
+@import url("testimonial.css");
+@import url("breadcrumb.css");
+@import url("blog.css");
+@import url("footer.css");
+@import url("team.css");
+@import url("pricing-table.css");
+@import url("single-blog.css");
+
 -----------------------------------------------------------------------------------*/
 /* google fonts */
 /*========================================*/
@@ -18709,12 +18798,12 @@ button.submit:hover {
 
 /*-----------------------------------------------------------------------------------
 
-    Template Name: minilow Minimal Portfolio Template.
-    Template URI:minilowmail@gmail.com 
-    Description: This is html5 template
-    Author: minilow
-    Author URI: minilowmail@gmail.com 
-    Version: 1.0
+Template Name: minilow Minimal Portfolio Template.
+Template URI:minilowmail@gmail.com 
+Description: This is html5 template
+Author: minilow
+Author URI: minilowmail@gmail.com 
+Version: 1.0
 
 -----------------------------------------------------------------------------------*/
 /* style portfolio */
@@ -19685,14 +19774,6 @@ a,
   transition: all 0.3s ease-out 0s;
 }
 
-.btn {
-  border-radius: 0px;
-  font-size: 14px;
-  padding: 0px 15px;
-  height: 30px;
-  line-height: 30px;
-}
-
 a:focus,
 .btn:focus {
   text-decoration: none;
@@ -20537,84 +20618,10 @@ p {
   margin: 150px 0;
 }
 
-/*Custom cloumn*/
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10 {
-  float: left;
-}
-
-.col-1 {
-  width: 10%;
-}
-
-.col-2 {
-  width: 20%;
-}
-
-.col-3 {
-  width: 30%;
-}
-
-.col-4 {
-  width: 40%;
-}
-
-.col-5 {
-  width: 50%;
-}
-
-.col-6 {
-  width: 60%;
-}
-
-.col-7 {
-  width: 70%;
-}
-
-.col-8 {
-  width: 80%;
-}
-
-.col-9 {
-  width: 90%;
-}
-
-.col-10 {
-  width: 100%;
-}
-
 /*************************************
 	  Background variation set 
    **************************************/
 /*colored background*/
-.white-bg {
-  background: #fff;
-}
-
-.gray-bg {
-  background: #fbfbfb;
-}
-
-.deep-gray-bg {
-  background: #f1f1f1;
-}
-
-.blue-bg {
-  background: #4fc1f0;
-}
-
-.default-bg {
-  background: #50c1f0;
-}
-
 .transparent-bg {
   background: transparent;
 }
@@ -20635,32 +20642,16 @@ p {
 }
 
 /*image background*/
-.bg-1 {
-  background-image: url(../../img/bg/footer.jpg);
+html {
+  background-color: #fff !important;
 }
 
-.bg-2 {
-  background-image: url(../../img/bg/breadcrumb.jpg);
-  background-size: cover;
-  background-position: center center;
+body {
+  margin-bottom: 500px !important;
+  z-index: 2 !important;
 }
 
-.bg-3 {
-  background-image: url("../../img/slider/1.jpg");
-  background-position: center center;
-  background-size: cover;
-}
-
-.bg-7 {
-  background-image: url("../../img/slider/6.jpg");
-  background-position: center center;
-  background-size: cover;
-}
-
-.bg-5 {
-  background-image: url(../../img/bg/breadcrumb.jpg);
-}
-
-.bg-6 {
-  background-image: url(../../img/bg/breadcrumb.jpg);
+footer {
+  z-index: -1 !important;
+  background-color: #2e373d;
 }

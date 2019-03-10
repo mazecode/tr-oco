@@ -44,14 +44,13 @@ class ContactController extends Controller
 
     public function sendmail()
     {
-        $options = [
-            'name' => 'required',
-            'email' => 'required|email'
-        ];
-
-        $fields = $this->request->getFields();
-
-        $validator = tr_validator($options, $fields);
+        $validator = tr_validator(
+            [
+                'name' => 'required',
+                'email' => 'required|email'
+            ],
+            $fields = $this->request->getFields()
+        );
 
         if ($validator->getErrors()) {
             return $this->response->flashNow('Existen errores, vuelve a intentarlo nuevamente!', 'warning');

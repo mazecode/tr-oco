@@ -17088,10 +17088,10 @@ input {
   bottom: 0;
   right: 0;
   z-index: -1000;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .video-bg {
@@ -17101,10 +17101,10 @@ input {
   bottom: 0;
   left: 0;
   z-index: -1000;
-  -webkit-transition: -webkit-transform .5s ease-out;
-  transition: -webkit-transform .5s ease-out;
-  transition: transform .5s ease-out;
-  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -17158,22 +17158,22 @@ input {
   .display-1 {
     font-size: 3rem;
     font-weight: 300;
-    line-height: 1.0;
+    line-height: 1;
   }
   .display-2 {
     font-size: 2.75rem;
     font-weight: 300;
-    line-height: 1.0;
+    line-height: 1;
   }
   .display-3 {
     font-size: 2.25rem;
     font-weight: 300;
-    line-height: 1.0;
+    line-height: 1;
   }
   .display-4 {
     font-size: 1.88rem;
     font-weight: 300;
-    line-height: 1.0;
+    line-height: 1;
   }
 }
 
@@ -17183,9 +17183,9 @@ input {
 
 #products,
 #projects {
-  -webkit-transition: .25s ease;
-  transition: .25s ease;
-  -moz-transition: .25s ease;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
   cursor: pointer;
   cursor: hand;
 }
@@ -17205,8 +17205,8 @@ input {
 #projects h2 {
   -webkit-transition-property: font-weight;
   transition-property: font-weight;
-  -webkit-transition-duration: .2s, 1s;
-          transition-duration: .2s, 1s;
+  -webkit-transition-duration: 0.2s, 1s;
+          transition-duration: 0.2s, 1s;
   -webkit-transition-timing-function: linear, ease-in;
           transition-timing-function: linear, ease-in;
   -webkit-transition-delay: 0s, 1s;

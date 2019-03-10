@@ -1,5 +1,10 @@
 <?php
 
+// add_custom_image_header();
+
+add_theme_support('custom-logo');
+add_theme_support('html5');
+
 /**
  * Menu
  */
@@ -56,8 +61,8 @@ function remove_admin_bar()
         show_admin_bar(false);
     }
 }
-add_action('after_setup_theme', 'remove_admin_bar');
-add_filter('show_admin_bar', '__return_false');
+// add_action('after_setup_theme', 'remove_admin_bar');
+// add_filter('show_admin_bar', '__return_false');
 
 
 // =========================================================================
@@ -91,19 +96,19 @@ add_filter('frontpage_template', 'themeslug_filter_front_page_template');
 function my_admin_title($admin_title, $title)
 {
     $t = "";
-    if (is_category()): $t .= 'Category: ';
+    if (is_category()) : $t .= 'Category: ';
         $t .= wp_title('');
         $t .= ' - ';
-    elseif (function_exists('is_tag') && is_tag()): single_tag_title('Tag Archive for &quot;');
+    elseif (function_exists('is_tag') && is_tag()) : single_tag_title('Tag Archive for &quot;');
         $t .= '&quot; - ';
-    elseif (is_archive()): $t .= wp_title('');
+    elseif (is_archive()) : $t .= wp_title('');
         $t .= ' Archive - ';
-    elseif (is_page()): $t .= wp_title('');
+    elseif (is_page()) : $t .= wp_title('');
         $t .= (!empty(wp_title(''))) ? ' - ' : '';
-    elseif (is_search()): $t .= 'Search for &quot;' . wp_specialchars($s) . '&quot; - ';
-    elseif (!(is_404()) && (is_single()) || (is_page())): $t .= wp_title('');
+    elseif (is_search()) : $t .= 'Search for &quot;' . wp_specialchars($s) . '&quot; - ';
+    elseif (!(is_404()) && (is_single()) || (is_page())) : $t .= wp_title('');
         $t .= ' - ';
-    elseif (is_404()): $t .= 'Not Found - ';
+    elseif (is_404()) : $t .= 'Not Found - ';
     endif;
 
     return trim($t) . get_bloginfo('name') . ' &bull; ' . $title;
@@ -137,7 +142,7 @@ function titlerestriction($title)
     $restrictedWords = explode(";", $restrictedWords);
     foreach ($restrictedWords as $restrictedWord) {
         if (stristr($title, $restrictedWord))
-        wp_die(__('Error: You have used a forbidden word in post title'));
+            wp_die(__('Error: You have used a forbidden word in post title'));
     }
 }
 add_action('publish_post', 'titlerestriction');

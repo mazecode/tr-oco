@@ -1,4 +1,4 @@
-@import "main";
+@import 'main';
 
 // section {
 //     position: relative;
@@ -11,7 +11,7 @@
 //     font-family: "Georgia", "Times New Roman", Times, serif
 // }
 
-// .heading { 
+// .heading {
 //     margin-bottom: 40px
 // }
 
@@ -1275,7 +1275,7 @@
 //     -webkit-box-shadow: 0 0 0;
 //     box-shadow: 0 0 0
 // }
-   
+
 // .panel-default {
 //     border-color: #666
 // }
@@ -1346,7 +1346,7 @@
 	bottom: 0;
 	right: 0;
 	z-index: -1000;
-	transition: transform .2s;
+	transition: transform 0.2s;
 	// min-width: 100%;
 	// min-height: 100%;
 	// width: auto;
@@ -1357,11 +1357,11 @@
 .video-bg {
 	position: absolute;
 	top: 0;
-	right: 0; 
+	right: 0;
 	bottom: 0;
 	left: 0;
 	z-index: -1000;
-	transition: transform .5s ease-out;
+	transition: transform 0.5s ease-out;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1378,7 +1378,7 @@
 	background-color: rgba(0, 0, 0, 0.48);
 }
 
-.video-bg>video {
+.video-bg > video {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1387,22 +1387,21 @@
 }
 
 @media (min-aspect-ratio: 16/9) {
-	.video-bg>video {
+	.video-bg > video {
 		height: 300%;
 		top: -100%;
 	}
 }
 
 @media (max-aspect-ratio: 16/9) {
-	.video-bg>video {
+	.video-bg > video {
 		width: 300%;
 		left: -100%;
 	}
 }
 
-
 @supports (object-fit: cover) {
-	.video-bg>video {
+	.video-bg > video {
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -1412,30 +1411,29 @@
 }
 
 @media (max-width: $breakpoint-mobile) {
-
 	//Manage Display Headers for Mobile Devices
 	.display-1 {
 		font-size: 3rem;
 		font-weight: 300;
-		line-height: 1.0;
-	}   
+		line-height: 1;
+	}
 
 	.display-2 {
 		font-size: 2.75rem;
 		font-weight: 300;
-		line-height: 1.0;
+		line-height: 1;
 	}
 
 	.display-3 {
 		font-size: 2.25rem;
 		font-weight: 300;
-		line-height: 1.0;
+		line-height: 1;
 	}
 
 	.display-4 {
 		font-size: 1.88rem;
 		font-weight: 300;
-		line-height: 1.0;
+		line-height: 1;
 	}
 }
 
@@ -1451,11 +1449,11 @@
 	// height: 100%;
 	// overflow: hidden;
 
-	transition: .25s ease;
-	-moz-transition: .25s ease;
+	transition: 0.25s ease;
+	-moz-transition: 0.25s ease;
 	cursor: pointer;
 	cursor: hand;
- 
+
 	&:hover {
 		background-origin: content-box;
 		background-size: cover;
@@ -1468,18 +1466,18 @@
 		// 	transform: scale(1.5);
 		// }
 	}
- 
+
 	h2 {
 		// font-family: 'Cinzel';
 
 		transition-property: font-weight;
-		transition-duration: .2s, 1s;
+		transition-duration: 0.2s, 1s;
 		transition-timing-function: linear, ease-in;
 		transition-delay: 0s, 1s;
 		z-index: 4;
 
 		@media only screen and (max-width: $breakpoint-mobile) {
-			font-size: 3rem; 
+			font-size: 3rem;
 		}
 
 		@media only screen and (min-width: $breakpoint-tablet) {
@@ -1494,9 +1492,9 @@
 }
 
 #projects {
-	background-color: rgba($blue, .25);
+	background-color: rgba($blue, 0.25);
 }
 
 #products {
-	background-color: rgba($green, .25);
+	background-color: rgba($green, 0.25);
 }

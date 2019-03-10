@@ -1,13 +1,12 @@
 <?php get_header(); ?>
 
-<?php include 'template-parts/slider.php' ?>
+<?php @include_once 'template-parts/__slider.php' ?>
 
-<?php  ?>
-
-<div class="container pt-2">
+<div class="container pt-2 bg-white pt-5 pb-100">
+    <h2 class="display-5"><?= strtoupper(get_post_type()) ?></h2>
     <div class="row portfolio-style-4 protfolio-column-3">
         <?php while (have_posts()) : the_post() ?>
-        <div class="col-lg-4 col-md-4 col-xs-6 filter1 p-0 m-0">
+        <div class="col col-4 col-xs-6 filter2 p-0 m-0">
             <div class="portfolio hover-style-04">
                 <div class="portfolio-img">
                     <?= wp_get_attachment_image(tr_posts_field("photo"), 'card'); ?>
@@ -28,11 +27,6 @@
                     </ul>
                 </div>
             </div>
-
-
-            <!-- <a href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox" rel="ligthbox">
-                    <img src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid " alt="">
-                </a> -->
         </div>
         <?php endwhile; ?>
     </div>

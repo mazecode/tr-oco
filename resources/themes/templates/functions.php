@@ -11,6 +11,23 @@
 | Happy themes!
 |
  */
+
+// functions.php
+
+add_filter('tr_theme_options_name', function () {
+    return 'oco-theme';
+});
+
+
+add_filter('wp_mail_from', function ($mail) {
+    return 'info@ocodesign.es';
+});
+
+add_filter('wp_mail_from_name', function ($mail) {
+    return 'OCO Design';
+});
+
+
 add_filter('deprecated_argument_trigger_error', function () {
     return false;
 });
@@ -109,10 +126,3 @@ require_once 'inc/_assets.php'; // Assets Admin|Theme
 if (class_exists('WooCommerce')) {
     require_once 'inc/woocommerce/woocommerce.php';
 }
-
-add_filter('wp_mail_from', function ($mail) {
-    return 'info@ocodesign.es';
-});
-add_filter('wp_mail_from_name', function ($mail) {
-    return 'OCO Design';
-});

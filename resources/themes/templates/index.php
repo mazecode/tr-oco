@@ -5,17 +5,17 @@ exit; ?>
     <div class="row">
 
         <?php if (have_posts()): ?>
-			<?php while (have_posts()): the_post(); ?>
-				<h1 class="col-md-12 page-title">
-					<?php the_title(); ?>
-				</h1>
+            <?php while (have_posts()): the_post(); ?>
+                <h1 class="col-md-12 page-title">
+                    <?php the_title(); ?>
+                </h1>
 
-				<article class="page col-md-8" id="post-<?php the_ID(); ?>">
-					<div class="entry">
-						<?php the_content(); ?>
-					</div>
-				</article>
-			<?php endwhile; ?>
+                <article class="page col-md-8" id="post-<?php the_ID(); ?>">
+                    <div class="entry">
+                        <?php the_content(); ?>
+                    </div>
+                </article>
+            <?php endwhile; ?>
         <?php else: ?>
         <article class="page col-md-8 not-found">
             <div class="entry">

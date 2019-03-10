@@ -1,6 +1,5 @@
 'use strict'
 
-
 import Home from './classes/Home'
 
 let home = new Home()

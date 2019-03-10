@@ -26,7 +26,6 @@
 <body <?= body_class(); ?>>
 
     <!-- header start -->
-    <header>
-        <?php include 'template-parts/navbar.php'; ?>
-    </header>
+    <?php include_once 'template-parts/showcase-home.php' ?>
+    <?php include_once 'template-parts/navbar.php'; ?>
     <!-- header end --> 

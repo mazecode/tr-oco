@@ -41,7 +41,7 @@
     <div class="container">
         <div class="slider-text text-center slider-style-2">
             <h1 class="heading-sub-title cd-headline clip is-full-width">
-                <span>Diseño Multifuncional</span>
+                <span></span>
             </h1>
             <!-- <p>...</p> -->
             <!-- <hr> -->

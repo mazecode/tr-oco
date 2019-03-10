@@ -85,11 +85,13 @@ define('WP_DEBUG_LOG', true);
 
 /* That's all, stop editing! Happy blogging. */
 
+define('FS_METHOD', 'direct');
+
 /** Absolute path to the WordPress directory. */
 if (!defined('ABSPATH')) define('ABSPATH', dirname(__FILE__) . '/');
 
 // Include TypeRocket
-require __DIR__ . '/init.php'; 
+require __DIR__ . '/init.php';
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
