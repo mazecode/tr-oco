@@ -11,22 +11,23 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "5.7.2",
-        "@fortawesome/free-regular-svg-icons": "^5.7.2",
-        "@fortawesome/free-solid-svg-icons": "^5.7.2",
+        "@fortawesome/free-regular-svg-icons": "^5.8.1",
+        "@fortawesome/free-solid-svg-icons": "^5.8.1",
         "bootstrap": "4.3.1",
         "cross-env": "^5.1",
         "generate-json-webpack-plugin": "^0.3.1",
-        "jquery": "3.3.1",
-        "jquery.easing": "^1.4.1",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "node-sass": "^4.11.0",
-        "popper.js": "^1.14.7",
         "sass-loader": "^7.1.0",
         "simple-line-icons": "^2.4.1"
     },
     "dependencies": {
+        "animate.css": "^3.7.0",
         "cross-env": "^5.1",
-        "laravel-mix": "^2.1.14"
+        "jquery": "3.3.1",
+        "jquery.easing": "^1.4.1",
+        "popper.js": "^1.15.0",
+        "slick-carousel": "^1.8.1"
     }
 }

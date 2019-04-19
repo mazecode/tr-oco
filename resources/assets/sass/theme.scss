@@ -11,12 +11,6 @@ body {
 	font-size: 14px !important;
 }
 
-// header {
-// }
-
-// footer {
-// }
-
 h1 {
 	font-size: 1.602em;
 }
@@ -163,12 +157,6 @@ h6 {
 	flex-wrap: wrap;
 }
 
-/* vertical spacing between columns */
-
-[class*='col-'] {
-	// margin-bottom: 30px;
-}
-
 .content {
 	height: 100%;
 	padding: 20px 20px 10px;
@@ -202,12 +190,6 @@ h6 {
 	background: #917c78;
 }
 
-.product {
-	.product-header {
-		height: 50px;
-		overflow: hidden;
-	}
-}
 
 /*-----------------------------------------------------------------------------------
 
@@ -223,14 +205,14 @@ h6 {
 /*----------------------------------------
  1.  THEME DEFAULT CSS
 ------------------------------------------*/
-body {
-	font-family: 'Lato', sans-serif;
-	font-weight: normal;
-	font-style: normal;
-	font-size: 14px;
-}
+// body {
+// font-family: 'Lato', sans-serif;
+// font-weight: normal;
+// font-style: normal;
+// font-size: 14px;
+// }
 .img {
-	max-width: 100%;
+	// max-width: 100%;
 	transition: all 0.3s ease-out 0s;
 }
 a,
@@ -253,12 +235,12 @@ a:focus,
 	text-decoration: none;
 	outline: none;
 }
-a:focus,
-a:hover {
-	color: #555555;
-	text-decoration: none;
-	transition: all 0.3s ease 0s;
-}
+// a:focus,
+// a:hover {
+// 	color: #555555;
+// 	text-decoration: none;
+// 	transition: all 0.3s ease 0s;
+// }
 a,
 button {
 	outline: medium none;
@@ -270,20 +252,20 @@ button {
 .capitalize {
 	text-transform: capitalize;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: 'Lato', sans-serif;
-	font-weight: 500;
-	color: #232332;
-	margin-top: 0px;
-	font-style: normal;
-	font-weight: 300;
-	letter-spacing: 0.5px;
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+// 	font-family: 'Lato', sans-serif;
+// 	font-weight: 500;
+// 	color: #232332;
+// 	margin-top: 0px;
+// 	font-style: normal;
+// 	font-weight: 300;
+// 	letter-spacing: 0.5px;
+// }
 h1 a,
 h2 a,
 h3 a,
@@ -292,39 +274,39 @@ h5 a,
 h6 a {
 	color: inherit;
 }
-h1 {
-	font-size: 40px;
-	font-weight: 500;
-}
-h2 {
-	font-size: 35px;
-}
-h3 {
-	font-size: 28px;
-}
-h4 {
-	font-size: 22px;
-}
-h5 {
-	font-size: 18px;
-}
-h6 {
-	font-size: 16px;
-}
-ul {
-	margin: 0px;
-	padding: 0px;
-}
-li {
-	list-style: none;
-}
-p {
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 24px;
-	color: #464646;
-	margin-bottom: 15px;
-}
+// h1 {
+// 	font-size: 40px;
+// 	font-weight: 500;
+// }
+// h2 {
+// 	font-size: 35px;
+// }
+// h3 {
+// 	font-size: 28px;
+// }
+// h4 {
+// 	font-size: 22px;
+// }
+// h5 {
+// 	font-size: 18px;
+// }
+// h6 {
+// 	font-size: 16px;
+// }
+// ul {
+// 	margin: 0px;
+// 	padding: 0px;
+// }
+// li {
+// 	list-style: none;
+// }
+// p {
+// 	font-size: 14px;
+// 	font-weight: normal;
+// 	line-height: 24px;
+// 	color: #464646;
+// 	margin-bottom: 15px;
+// }
 
 /*************************
 	Basic margin padding
@@ -397,7 +379,7 @@ p {
 }
 /*************************
 		Margin right
-  *************************/
+*************************/
 .mr-0 {
 	margin-right: 0px;
 }
@@ -451,7 +433,7 @@ p {
 }
 /*************************
 		Margin bottom
-  *************************/
+*************************/
 .mb-0 {
 	margin-bottom: 0;
 }
@@ -504,8 +486,8 @@ p {
 	margin-bottom: 150px;
 }
 /*************************
-		  Margin left
-  *************************/
+		Margin left
+*************************/
 .ml-0 {
 	margin-left: 0;
 }
@@ -558,8 +540,8 @@ p {
 	margin-left: 150px;
 }
 /*************************
-		  Padding top
-  *************************/
+		Padding top
+*************************/
 .pt-0 {
 	padding-top: 0;
 }
@@ -615,8 +597,8 @@ p {
 	padding-top: 175px;
 }
 /*************************
-		  Padding right
-  *************************/
+		Padding right
+*************************/
 .pr-0 {
 	padding-right: 0;
 }
@@ -672,8 +654,8 @@ p {
 	padding-right: 200px;
 }
 /*************************
-		  Padding bottom
-  *************************/
+		Padding bottom
+*************************/
 .pb-0 {
 	padding-bottom: 0;
 }
@@ -732,8 +714,8 @@ p {
 	padding-bottom: 150px;
 }
 /*************************
-		  Padding left
-  *************************/
+		Padding left
+*************************/
 .pl-0 {
 	padding-left: 0;
 }
@@ -790,8 +772,8 @@ p {
 }
 
 /***************************
-	  Page section padding 
-  ****************************/
+	Page section padding 
+****************************/
 .ptb-0 {
 	padding: 0;
 }
@@ -851,8 +833,8 @@ p {
 }
 
 /***************************
-	  Page section margin 
-  ****************************/
+	Page section margin 
+****************************/
 .mtb-0 {
 	margin: 0;
 }
@@ -906,8 +888,8 @@ p {
 }
 
 /*************************************
-	  Background variation set 
-   **************************************/
+	Background variation set 
+**************************************/
 /*colored background*/
 .transparent-bg {
 	background: transparent;
@@ -916,6 +898,7 @@ p {
 .bg-opacity {
 	position: relative;
 }
+
 .bg-opacity::before {
 	background: #fff none repeat scroll 0 0;
 	content: '';
@@ -971,4 +954,11 @@ footer {
 	// background-image: -webkit-linear-gradient(top, $primary, $secondary);
 	// background-image: -moz-linear-gradient(top, $primary, $secondary);
 	// background-image: linear-gradient(top, $primary, $secondary);
+}
+
+.product {
+	.product-header {
+		height: 300px;
+		overflow: hidden;
+	}
 }

@@ -18,8 +18,8 @@ jQuery(document).ready($ => {
     }
 
     let classSet = $('.cp')
-        .attr('class')
-        .split(' '),
+      .attr('class')
+      .split(' '),
       cp_status = getCookie('cookie_policy');
 
     if (cp_status !== '1') {

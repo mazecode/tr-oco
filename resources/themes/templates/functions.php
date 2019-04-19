@@ -13,11 +13,13 @@
  */
 
 // functions.php
+if(get_theme_mod('campo_texto') != null) {
+    dd(get_theme_mod('campo_texto'));
+}
 
 add_filter('tr_theme_options_name', function () {
     return 'oco-theme';
 });
-
 
 add_filter('wp_mail_from', function ($mail) {
     return 'info@ocodesign.es';
@@ -26,7 +28,6 @@ add_filter('wp_mail_from', function ($mail) {
 add_filter('wp_mail_from_name', function ($mail) {
     return 'OCO Design';
 });
-
 
 add_filter('deprecated_argument_trigger_error', function () {
     return false;

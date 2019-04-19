@@ -1,14 +1,13 @@
-@import "main";
+@import 'main';
 
 body,
 html {
-    height: 100% !important;
+	height: 100% !important;
 }
 
 header {
-    z-index: 1000
+	z-index: 1000;
 }
-
 
 body.maintenance-mode {
 	display: flex;
@@ -38,7 +37,6 @@ body.maintenance-mode {
 
 	#content {
 		padding: $spacer * 3;
-
 	}
 
 	h2 {
@@ -58,7 +56,7 @@ body.maintenance-mode {
 		input:-webkit-autofill,
 		textarea:-webkit-autofill,
 		select:-webkit-autofill {
-			background: rgba($white, .8) !important;
+			background: rgba($white, 0.8) !important;
 			background-image: none !important;
 			color: $green !important;
 		}
@@ -99,7 +97,6 @@ body.maintenance-mode {
 			border-bottom: 5px dotted $primary;
 		}
 
-
 		.input-group-text {
 			background: transparent;
 			border: none;
@@ -130,57 +127,56 @@ body.maintenance-mode {
 		line-height: 40px;
 		font-size: 13px;
 		text-align: center;
-		-webkit-transition: all .2s ease-out;
-		-moz-transition: all .2s ease-out;
-		transition: all .2s ease-out;
+		-webkit-transition: all 0.2s ease-out;
+		-moz-transition: all 0.2s ease-out;
+		transition: all 0.2s ease-out;
 		vertical-align: bottom;
-		border: solid 1px #333
+		border: solid 1px #333;
 	}
 
 	.social a i {
 		vertical-align: bottom;
-		line-height: 40px
+		line-height: 40px;
 	}
 
 	.social a:hover {
-		background: transparent
+		background: transparent;
 	}
 
 	.social a:hover.facebook {
 		color: #4460ae;
-		border-color: #4460ae
+		border-color: #4460ae;
 	}
 
 	.social a:hover.gplus {
 		color: #c21f25;
-		border-color: #c21f25
+		border-color: #c21f25;
 	}
 
 	.social a:hover.twitter {
 		color: #3cf;
-		border-color: #3cf
+		border-color: #3cf;
 	}
 
 	.social a:hover.instagram {
 		color: #cd4378;
-		border-color: #cd4378
+		border-color: #cd4378;
 	}
 
 	.social a:hover.email {
 		color: #4a7f45;
-		border-color: #4a7f45
+		border-color: #4a7f45;
 	}
 
 	.social a:hover.link {
-		color: #871AFF;
-		border-color: #871AFF
+		color: #871aff;
+		border-color: #871aff;
 	}
-
 
 	.effect-19 {
 		z-index: 1;
 
-		~label {
+		~ label {
 			color: $primary;
 			width: auto;
 			left: 40px;
@@ -188,7 +184,7 @@ body.maintenance-mode {
 			z-index: 0;
 		}
 
-		&:focus~label {
+		&:focus ~ label {
 			top: -18px !important;
 			left: 0;
 			color: inherit;
@@ -213,15 +209,15 @@ body.maintenance-mode {
 
 	@media only screen and (max-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet -1) {
 		#content {
-			padding: $spacer * .5;
+			padding: $spacer * 0.5;
 		}
 	}
 
 	@media only screen and (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-large - 1) {
-		#content {}
+		#content {
+		}
 	}
 }
-
 
 // #maintenance-content-overlay:before {
 // 	content: ‘’;

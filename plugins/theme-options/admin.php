@@ -54,5 +54,4 @@ $form = tr_form()->useJson()->setGroup($this->getName());
         ->render('box');
     echo $form->close();
     ?>
-
 </div> 

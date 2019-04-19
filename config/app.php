@@ -37,7 +37,7 @@ return [
     | Turn on Debugging for TypeRocket. Set to false to disable.
     |
     */
-    'debug' => immutable('WP_DEBUG', true),
+    'debug' => immutable('WP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------

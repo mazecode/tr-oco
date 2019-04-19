@@ -4,7 +4,20 @@
 
 add_theme_support('custom-logo');
 add_theme_support('html5');
+add_theme_support('custom-background');
+add_theme_support('align-wide');
+add_theme_support('dark-editor-style');
+add_theme_support('responsive-embeds');
+add_theme_support('post-thumbnails');
 
+/**
+ * Image Sizes
+ */
+add_image_size('full-width', 1200, 800, true);
+add_image_size('post-thumbnail', 800, 650, true);
+add_image_size('card', 600, 350, true);
+add_image_size('prts', 1000, 500, true);
+add_image_size('category-thumb', 300, 9999);
 /**
  * Menu
  */
@@ -19,14 +32,6 @@ function register_menus()
     );
 }
 add_action('init', 'register_menus');
-
-/**
- * Image Sizes
- */
-add_image_size('full-width', 1200, 800, true);
-add_image_size('post-thumbnail', 800, 650, true);
-add_image_size('card', 600, 350, true);
-add_image_size('prts', 1000, 100, true);
 
 /**
  * Site Options

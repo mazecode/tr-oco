@@ -1,15 +1,15 @@
 <?php get_header(); ?>
 
-<?php @include_once 'template-parts/__slider.php' ?>
+<?php  ?>
 
-<div class="container pt-2 bg-white pt-5 pb-100">
-    <h2 class="display-5"><?= strtoupper(get_post_type()) ?></h2>
+<div class="container bg-white">
     <div class="row portfolio-style-4 protfolio-column-3">
+        <h2 class="display-5 d-none"><?= strtoupper(get_post_type()) ?></h2>
         <?php while (have_posts()) : the_post() ?>
-        <div class="col col-4 col-xs-6 filter2 p-0 m-0">
+        <div class="col-md-4 col-xs-6 filter2 p-0 m-0" style="hoverflow: hidden">
             <div class="portfolio hover-style-04">
                 <div class="portfolio-img">
-                    <?= wp_get_attachment_image(tr_posts_field("photo"), 'card'); ?>
+                    <?= tr_posts_field(":img:card:photo"); ?>
                     <div class="portfolio-view">
                         <a class="venobox vbox-item" data-gall="gall1" href="<?= the_permalink(); ?>"></a>
                     </div>
@@ -21,8 +21,7 @@
                         </a>
                     </h3>
                     <ul class="portfolio-cat">
-                        <li><a href="#">
-                                <?php the_excerpt(); ?></a></li>
+                        <li><a href="#"><?php the_excerpt(); ?></a></li>
                         <li><a href="#">Development</a></li>
                     </ul>
                 </div>
@@ -32,4 +31,4 @@
     </div>
 </div>
 
-<?php get_footer(); ?> 
+<?php get_footer();  ?> 

@@ -106,6 +106,12 @@
 	padding: 0 0 6px;
 }
 
+.shadows {
+	-webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
+}
+
 .nav-button {
 	position: relative;
 	z-index: 1111;
@@ -182,11 +188,11 @@
 }
 
 // === Variables =====
-$perspective:     60rem;
-$font-size:       4.25rem;
-$split-position:  49%;
+$perspective: 60rem;
+$font-size: 4.25rem;
+$split-position: 49%;
 $split-thickness: 4px;
-$split-color:     #FF2C75;
+$split-color: #ff2c75;
 
 // === Menu <ul> =====
 .Menu-list {

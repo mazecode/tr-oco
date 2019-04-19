@@ -20,7 +20,7 @@
                     </div> -->
                     <div class="col-sm-12 col-xs-12">
                         <!-- <div class="mail-part cud-top"> -->
-                        <i class="far fa-envelope-open-text"></i> info@ocodesign.es
+                        <i class="far fa-envelope"></i> info@ocodesign.es
                         <!-- </div> -->
                     </div>
                 </div>

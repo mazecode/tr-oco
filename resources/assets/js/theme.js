@@ -1,49 +1,68 @@
-var callback = () => {
-    document.querySelector('.nav-button').addEventListener("click", () => {
-        document.querySelector('body').classList.toggle('nav-open')
-    });
+document.addEventListener("DOMContentLoaded", function (event) {
+    showTitle();
+    sliderComponentPage();
+});
 
-    // let jumbotron = document.getElementById('');
-};
+document.querySelector('.nav-button').addEventListener("click", async () => {
+    document.querySelector('body').classList.toggle('nav-open');
+});
 
-if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
-    callback();
-} else {
-    document.addEventListener("DOMContentLoaded", callback);
+async function showTitle() {
+    let title = $('.masthead .title');
+
+    await setTimeout(() => {
+        title.removeClass('d-none').addClass('animated zoomIn fast');
+    }, 500);
+
+    await setTimeout(() => {
+        title.removeClass('animated zoomIn');
+    }, 2000)
 }
 
+function sliderComponentPage() {
+    let slider = $('.slider')
 
-function menu() {
-    var $menu = $('.navbar-nav'),
-        $item = $('.nav-item'),
-        w = $(window).width(), //window width
-        h = $(window).height(); //window height
-
-    $(window).on('mousemove', function (e) {
-        var offsetX = 0.5 - e.pageX / w, //cursor position X
-            offsetY = 0.5 - e.pageY / h, //cursor position Y
-            dy = e.pageY - h / 2, //@h/2 = center of poster
-            dx = e.pageX - w / 2, //@w/2 = center of poster
-            theta = Math.atan2(dy, dx), //angle between cursor and center of poster in RAD
-            angle = theta * 180 / Math.PI - 90, //convert rad in degrees
-            offsetPoster = $menu.data('offset'),
-            transformPoster = 'translate3d(0, ' + -offsetX * offsetPoster + 'px, 0) rotateX(' + (-offsetY * offsetPoster) + 'deg) rotateY(' + (offsetX * (offsetPoster * 2)) + 'deg)'; //poster transform
-
-        //get angle between 0-360
-        if (angle < 0) {
-            angle = angle + 360;
-        }
-
-        //poster transform
-        $menu.css('transform', transformPoster);
-
-        //parallax for each layer
-        $item.each(function () {
-            var $this = $(this),
-                offsetLayer = $this.data('offset') || 0,
-                transformLayer = 'translate3d(' + offsetX * offsetLayer + 'px, ' + offsetY * offsetLayer + 'px, 20px)';
-
-            $this.css('transform', transformLayer);
-        });
+    slider.slick({
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        lazyLoad: 'ondemand',
+        dots: true,
+        arrows: true,
+        adaptiveHeight: true,
+        prevArrow: '#btnPrev',
+        nextArrow: '#btnNext',
+        mobileFirst: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    adaptiveHeight: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    adaptiveHeight: false
+                }
+            }
+        ]
+    });
+    slider.slickLightbox({
+        src: 'data-lightbox',
+        itemSelector: '.slick-slide img',
+        lazy: true
     });
 }

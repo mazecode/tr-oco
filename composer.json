@@ -1,16 +1,16 @@
 {
-    "name": "typerocket/typerocket",
-    "description": "TypeRocket for WordPress.",
+    "name": "mazecode/ocodesign",
+    "description": "Ocodesign - WordPress template",
     "keywords": [
         "framework",
-        "typerocket",
+        "ocodesign",
         "wordpress"
     ],
     "license": "GPL-3.0-or-later",
-    "homepage": "https://typerocket.com",
+    "homepage": "https://ocodesign.com",
     "authors": [
         {
-            "name": "Kevin Dees",
+            "name": "Mazecode",
             "homepage": "https://kevdees.com",
             "role": "Creator"
         }
